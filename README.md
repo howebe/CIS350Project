@@ -10,6 +10,8 @@ MERN is a free open-source JS software stack for building dynamic web sites and 
 ## 3 Architectural Design
 The Book Borrow Web app is based on the MERN architecture. MERN includes a front end and a back end where the front end is the user interface, and the back end is controlled by a server and database. The client is provided with an interactive user interface using React for the process of renting out books and many other functions available. The back end or server-side processes will be enabled using node and express. The client sends requests to the server to allow for books to be rented. Node and express communicate this data with mongoDB. Node and express are the middlemen for communicating the information from mongo to the user. The server also allows the user to check their profile and check any information regarding past books that they had rented out. 
 
+![Architecture Design](https://user-images.githubusercontent.com/71044494/193474192-3c65a107-84dd-420d-94c9-44dceadf897b.png)
+
 <font size=4>___3.1 Class Diagram___
 
 <font size=3>Figure 2 shows the class diagram for the book borrowing system. Each user will have a profile and a list of textbooks they are providing. Each textbook will have a user that owns it as well as a condition, type, and class it is used in. The profile and class will help filtering book search later on. The homepage class contains all the functionality of the system such as a user borrowing a textbook, a user viewing their profile, etc. There are many textbooks displayed on the homepage by default which will be shown in section 4.
