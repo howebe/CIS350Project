@@ -62,6 +62,14 @@ style="width:75%">
 ## 4 User Guide/Implementation
 4.1 Login
 When a user visits the webapp using a search engine of their choice, they are presented with a screen that prompts them to enter their login credentials or to create a new account. In order to access the features of the webapp, a user must have/make an account first. Account information will be further explained below in section 4.3 and figure 3. An example user interface can for the login screen can be seen below:
+<figure>
+<p align="center">
+<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2014.png" alt="Trulli"
+style="width:75%">
+<p align="center">Figure 4. Sequence Diagram for Borrowing Books
+</figcaption>
+</p>
+</figure>
 
 4.2 Home Page
 
