@@ -61,7 +61,8 @@ style="width:75%">
 
 ## 4 User Guide/Implementation
 <font size=4>___4.1 Login___
-When a user visits the webapp using a search engine of their choice, they are presented with a screen that prompts them to enter their login credentials or to create a new account. In order to access the features of the webapp, a user must have/make an account first. Account information will be further explained below in section 4.3 and figure 7. An example user interface can for the login screen can be seen below:
+  
+<font size=3>When a user visits the webapp using a search engine of their choice, they are presented with a screen that prompts them to enter their login credentials or to create a new account. In order to access the features of the webapp, a user must have/make an account first. Account information will be further explained below in section 4.3 and figure 7. An example user interface can for the login screen can be seen below:
 <figure>
 <p align="center">
 <img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2014.png" alt="Trulli"
@@ -72,7 +73,8 @@ style="width:75%">
 </figure>
 
 <font size=4>___4.2 Home Page___
-After you have logged into a valid account, you are directed to the home page which acts as a hub to all of the different things you may want to explore or do within the webapp. Users have the ability to Browse books posted by other users as well as filter down their search results to look for a specific textbook they may want. They also have the ability to post a book to the listing for others to interact with and potentially claim.You may also access your profile inforation as well as other functions associated with your profile. Lastly there is options for help with a specific task and information about the webapp and its inspiration. An user interface example of this can be seen below in figure 6:
+  
+<font size=3>After you have logged into a valid account, you are directed to the home page which acts as a hub to all of the different things you may want to explore or do within the webapp. Users have the ability to Browse books posted by other users as well as filter down their search results to look for a specific textbook they may want. They also have the ability to post a book to the listing for others to interact with and potentially claim.You may also access your profile inforation as well as other functions associated with your profile. Lastly there is options for help with a specific task and information about the webapp and its inspiration. An user interface example of this can be seen below in figure 6:
 <figure>
 <p align="center">
 <img src="https://github.com/howebe/CIS350Project/blob/main/Frame%201.png" alt="Trulli"
@@ -83,7 +85,8 @@ style="width:75%">
 </figure>
 
 <font size=4>___4.3 Profile___
-By selecting a users profile in the top right corner in the home page, the user will be presented with a new window where they can see their information linked to their account such as their name, email, school, and profile rating. Ratings are based off of user to user interactions in regards to borrowing transactions. They may aslo see their borrow history and book listings as well as return a book and edit the settings of their profile or book listings. A user interface example of this can be seen below in figure 7:
+  
+<font size=3>By selecting a users profile in the top right corner in the home page, the user will be presented with a new window where they can see their information linked to their account such as their name, email, school, and profile rating. Ratings are based off of user to user interactions in regards to borrowing transactions. They may aslo see their borrow history and book listings as well as return a book and edit the settings of their profile or book listings. A user interface example of this can be seen below in figure 7:
 <figure>
 <p align="center">
 <img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2019.png" alt="Trulli"
@@ -94,7 +97,8 @@ style="width:75%">
 </figure>
 
 <font size=4>___4.4 Filtering Results___
-When browsing the listings for a specific book, a user has the ability to filter the results presented to them more easily find a specific textbook they are looking for. Below in figure 8, the ability to search for a textbook, filter by what university the current owner of the textbook attends, what grade level, subject, and class number the textbook is associated with as well as its condition and type, whether that be an ebook or paperback. By pressing search, the filters adjusted by the user will be applied and the results will be passed up into the listings section of the webapp. A user interface example of this can be seen below in figure 8:
+  
+<font size=3>When browsing the listings for a specific book, a user has the ability to filter the results presented to them more easily find a specific textbook they are looking for. Below in figure 8, the ability to search for a textbook, filter by what university the current owner of the textbook attends, what grade level, subject, and class number the textbook is associated with as well as its condition and type, whether that be an ebook or paperback. By pressing search, the filters adjusted by the user will be applied and the results will be passed up into the listings section of the webapp. A user interface example of this can be seen below in figure 8:
 <figure>
 <p align="center">
 <img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2024.png" alt="Trulli"
