@@ -1,6 +1,17 @@
-# CIS350Project
-Project repository for textbook sharing webapp used for student to student interaction. 
-*trying again*
+# CIS350
+
+<font size="5"><b>Textbook Borrowing Web App
+
+___Created by___:
+
+-------------------------------------------------
+Brandon Baker
+
+Ben Howe
+
+Sean O'Keefe</b></font>
+
+-------------------------------------------------
 
 ## 1 Abstract
 Textbooks are one of the most important ways to learn in a lot of college courses. However, with the increase in college students, textbooks seem to run out often and having to wait for them to be in stock again is not ideal. Due to this, there is a need for students to have another source of getting these textbooks, but to also ensure that they won’t have to pay the absurd amount of money that is needed to purchase these books. The idea behind our full-stack Book Borrowing web application is to help students who need books that may go out of stock quicker than others and to avoid any extra costs. The student can create an account, an get started instantly. Our web application gives students an easily accessible user-interface which is quite easy to use. Students can use many filters offered to search for the book they need. It is easy to use and will allow for students to check books out from other students who have the textbook from previously taking the course. Students then are responsible for returning these books to allow for them to get added back into the system. The Borrow Book web application will help relive students with the stress of paying for books or missing out if they try to order them too late when they are out of stock.
