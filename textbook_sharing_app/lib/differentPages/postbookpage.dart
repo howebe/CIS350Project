@@ -18,6 +18,16 @@ class _PostBookPageState extends State<PostBookPage> {
         children: [
           Container(
             height: 100,
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Upload Image Here',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ),
           Container(
             child: TextFormField(

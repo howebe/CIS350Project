@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         scrollDirection: Axis.vertical,
         children: [
           ListTile(
-            leading: Icon(Icons.delete_forever, color: Colors.red),
+            leading: Icon(Icons.create_outlined, color: Colors.black),
             title: Text('Post a Book'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -30,27 +30,34 @@ class _HomePageState extends State<HomePage> {
           ),
           ListTile(
             leading: Icon(Icons.arrow_forward_ios),
-            title: Text('Favourites'),
-            subtitle: Text('All your favourite widgets'),
-            trailing: Icon(Icons.star, color: Colors.orange),
-          ),
-          ListTile(
-            leading: Icon(Icons.arrow_forward_ios),
-            title: Text('High Ranked'),
-            subtitle: Text('All widgets liked by the community'),
-            trailing: Icon(Icons.mood, color: Colors.blue),
-          ),
-          ListTile(
-            leading: Icon(Icons.arrow_forward_ios),
-            title: Text('Important'),
-            subtitle: Text('All widgets that are important to know'),
-            trailing: Icon(Icons.assistant_photo, color: Colors.black),
-          ),
-          ListTile(
-            leading: Icon(Icons.delete_forever, color: Colors.red),
-            title: Text('Deleted'),
+            title: Text('Textbook'),
+            subtitle: Text('Details'),
             onTap: () {
-              print('Deleted pressed');
+              print('Open Textbook Details');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.arrow_forward_ios),
+            title: Text('Textbook'),
+            subtitle: Text('Details'),
+            onTap: () {
+              print('Open Textbook Details');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.arrow_forward_ios),
+            title: Text('Textbook'),
+            subtitle: Text('Details'),
+            onTap: () {
+              print('Open Textbook Details');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.arrow_forward_ios),
+            title: Text('Textbook'),
+            subtitle: Text('Details'),
+            onTap: () {
+              print('Open Textbook Details');
             },
           ),
         ],
