@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Fix commmit issue for Ben
+
 class PostBookPage extends StatefulWidget {
   const PostBookPage({super.key});
 
@@ -8,6 +10,9 @@ class PostBookPage extends StatefulWidget {
 }
 
 class _PostBookPageState extends State<PostBookPage> {
+
+final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +54,7 @@ class _PostBookPageState extends State<PostBookPage> {
           ),
           Container(
             child: TextFormField(
+              controller: myController,
               decoration: const InputDecoration(
                 hintText: "Enter Class",
                 border: UnderlineInputBorder(),
