@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import '../textbook.dart';
 
 // Fix commmit issue for Ben
 
@@ -10,8 +12,7 @@ class PostBookPage extends StatefulWidget {
 }
 
 class _PostBookPageState extends State<PostBookPage> {
-
-final myController = TextEditingController();
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,10 @@ final myController = TextEditingController();
           ),
           Container(
             child: TextFormField(
+              // controller: TextEditingController(text: Textbook.name),
+              // onChanged: (value) {
+              //         Textbook.name = value;
+              //       },
               decoration: const InputDecoration(
                 hintText: "Enter Book Name",
                 border: UnderlineInputBorder(),
@@ -75,6 +80,20 @@ final myController = TextEditingController();
             child: TextButton(
               onPressed: () {
                 Navigator.pop(context);
+
+                // Future save() async {
+                //   var res = await http.post('http://localhost:8080/catalog',
+                //       headers: <String, String>{
+                //         'Context-Type': 'application/json;charSet=UTF-8'
+                //       },
+                //       body: <String, String>{
+                //         'name': Textbook.name,
+                //         'password': user.password
+                //       });
+                //   print(res.body);
+                
+                // }
+
               },
               child: const Text('Press to Post Your Book!'),
             ),
