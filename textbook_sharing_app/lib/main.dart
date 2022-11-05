@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/textbook.dart';
 import 'package:textbook_sharing_app/differentPages/homepage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +38,10 @@ class WelcomePage extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
+
+            CollectionReference collectionReference = FirebaseFirestore.instance.collection('textbook_catalog');
+            collectionReference.add({'Name': 'Physics', 'Condition': 'Good', 'University': 'GVSU', 'Description': 'Interesting concepts', 'Class': 'PHY240', 'Key': 'PHY'});
+
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const HomePage(title: 'Textbook Catalog');
             }));
