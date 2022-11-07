@@ -112,16 +112,16 @@ class _PostBookPageState extends State<PostBookPage> {
             child: TextButton(
               onPressed: () {
                 if (checkInputValues()) {
-                  FirebaseFirestore.instance
-                      .collection('textbook_catalog')
-                      .add({
-                    'Name': _controller[0].text,
-                    'Description': _controller[1].text,
-                    'Class': _controller[2].text,
-                    'University': _controller[3].text,
-                    'Condition': _controller[4].text,
-                    'Key': _controller[5].text
-                  });
+                  // FirebaseFirestore.instance
+                  //     .collection('textbook_catalog')
+                  //     .add({
+                  //   'Name': _controller[0].text,
+                  //   'Description': _controller[1].text,
+                  //   'Class': _controller[2].text,
+                  //   'University': _controller[3].text,
+                  //   'Condition': _controller[4].text,
+                  //   'Key': _controller[5].text
+                  // });
                   Navigator.pop(context);
                 } else {}
               },

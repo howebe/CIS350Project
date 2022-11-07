@@ -4,11 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "textbook_sharing_app",
             "cwd": "CIS350Project\\textbook_sharing_app",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            
         },
         {
             "name": "textbook_sharing_app (profile mode)",
@@ -418,7 +420,8 @@
             "name": "flutter",
             "cwd": "src\\flutter\\packages\\flutter",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
         },
         {
             "name": "flutter (profile mode)",
