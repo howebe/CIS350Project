@@ -10,11 +10,12 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final user = Provider.of<AppUser?>(context);
 
     //returns authentication widget or home page
     if (user == null) {
-      //ERROR Between this, auth services
+      
       return Auth();
     } else {
       return Home();

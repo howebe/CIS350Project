@@ -1,9 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:textbook_sharing_app/models/user.dart';
+import 'package:textbook_sharing_app/services/database.dart';
+import 'package:textbook_sharing_app/textbook.dart';
 
 class AuthService {
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  String name = "dfsdfsdf";
+  
+  String condition = "New";
+  
+  String bookClass= "sdfs";
+  
+  String description= "sdfsfsf";
+  
+  String university= "sdfsfsdf";
+  
+  String key = "MTH";
 
 // create user obj based on FirebaseUser
 AppUser? _userFromFirebaseUser(User user){
@@ -13,18 +27,6 @@ AppUser? _userFromFirebaseUser(User user){
 // auth change user stream
  Stream<AppUser?> get user { 
          return _auth.authStateChanges().map((User? user) => _userFromFirebaseUser(user!));
-}
-
-// sign in anonymously
-Future signInAnon() async {
-  try {
-    UserCredential result = await _auth.signInAnonymously();
-    User? user = result.user;
-    return _userFromFirebaseUser(user!);
-  } catch (e) {
-    print(e.toString());
-    return null;
-  }
 }
 
 // sign in with email & password
@@ -45,6 +47,7 @@ Future registerWithEmailAndPassword(String email, String password) async {
   try {
     UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
     User? user = result.user;
+    await DatabaseService(uid: user!.uid).updateUser([]);
     return _userFromFirebaseUser(user!);
   }catch (e){
     print(e.toString());
