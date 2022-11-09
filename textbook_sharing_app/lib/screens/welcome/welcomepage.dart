@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/generalListing.dart';
+import 'package:textbook_sharing_app/screens/auth/auth.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key, required this.title}) : super(key: key);
@@ -11,16 +12,27 @@ class WelcomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: TextButton(
-          onPressed: () {
-            
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const GeneralListing(title: 'Textbook Catalog');
-            }));
-          },
-          child: const Text('Press to Get Started!'),
-        ),
+              }));
+            },
+            child: const Text('Continue without signing in'),
+            ),
+            TextButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const Auth();
+              }));
+            },
+            child: const Text('Login or Register'),
+            ),
+          ],
       ),
-    );
+    ));
   }
 }

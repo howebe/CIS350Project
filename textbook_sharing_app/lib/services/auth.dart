@@ -7,18 +7,6 @@ class AuthService {
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  String name = "dfsdfsdf";
-  
-  String condition = "New";
-  
-  String bookClass= "sdfs";
-  
-  String description= "sdfsfsf";
-  
-  String university= "sdfsfsdf";
-  
-  String key = "MTH";
-
 // create user obj based on FirebaseUser
 AppUser? _userFromFirebaseUser(User user){
   return AppUser(uid: user.uid);

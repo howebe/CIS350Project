@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             return null;
           },
       child: MaterialApp(
-        home: GeneralListing(title: 'title'),
+        home: WelcomePage(title: 'Welcome to Textbook Sharing'),
       ),
     );
   }
