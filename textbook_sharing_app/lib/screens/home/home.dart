@@ -31,7 +31,7 @@ final AuthService _auth = AuthService();
               )
           ],
         ),
-        body: UserList(),
+        body: null,
       ),
     );
   }

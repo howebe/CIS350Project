@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/generalListing.dart';
 import 'package:textbook_sharing_app/screens/auth/auth.dart';
+import 'package:textbook_sharing_app/screens/wrapper.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key, required this.title}) : super(key: key);
@@ -27,7 +28,7 @@ class WelcomePage extends StatelessWidget {
             TextButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const Auth();
+              return const Wrapper();
               }));
             },
             child: const Text('Login or Register'),
