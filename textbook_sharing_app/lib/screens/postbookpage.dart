@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:textbook_sharing_app/services/database.dart';
 import '../textbook.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import '../main.dart';
 
 class PostBookPage extends StatefulWidget {
-  const PostBookPage({super.key});
+  final String? uid;
+  PostBookPage({this.uid});
 
   @override
   State<PostBookPage> createState() => _PostBookPageState();
@@ -15,6 +17,8 @@ class _PostBookPageState extends State<PostBookPage> {
   List<TextEditingController> _controller = [
     for (int i = 0; i < 6; i++) TextEditingController()
   ];
+
+  final DatabaseService db = DatabaseService();
 
   List<String> conditions = [
     'Slightly Used',
@@ -112,18 +116,22 @@ class _PostBookPageState extends State<PostBookPage> {
             child: TextButton(
               onPressed: () {
                 if (checkInputValues()) {
-                  // FirebaseFirestore.instance
-                  //     .collection('textbook_catalog')
-                  //     .add({
-                  //   'Name': _controller[0].text,
-                  //   'Description': _controller[1].text,
-                  //   'Class': _controller[2].text,
-                  //   'University': _controller[3].text,
-                  //   'Condition': _controller[4].text,
-                  //   'Key': _controller[5].text
-                  // });
+
+                  final DatabaseService db = DatabaseService();
+
+                  Map<String, String> textbook = {
+                    'Name': _controller[0].text,
+                    'Description': _controller[1].text,
+                    'Class': _controller[2].text,
+                    'University': _controller[3].text,
+                    'Condition': _controller[4].text,
+                    'Key': _controller[5].text
+                  };
+
+                  db.addTextbook(textbook);
+
                   Navigator.pop(context);
-                } else {}
+                } 
               },
               child: const Text('Press to Post Your Book!'),
             ),

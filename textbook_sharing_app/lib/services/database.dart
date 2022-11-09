@@ -7,13 +7,9 @@ final String? uid;
 DatabaseService({this.uid});
 
 final CollectionReference users = FirebaseFirestore.instance.collection('Users');
+final CollectionReference textbooks = FirebaseFirestore.instance.collection('textbook_catalog');
 
-// Future updateUser(List<Textbook> textbooks) async {
-//   return await users.doc(uid).set({
-//     'textbook' : textbooks,
-//   }
-//   );
-// }
+//Update user textbook list
  Future updateUser(List<Textbook> textbooks) async {
     Map<String, List<Textbook>> textbook = {
       'textbook' : textbooks,
@@ -22,10 +18,24 @@ final CollectionReference users = FirebaseFirestore.instance.collection('Users')
     return await users.doc(uid).set(textbook);
   }
 
-  // Text list from snapshot
+
+
+  // Add Textbook to User List
   
 
+  // Add Textbook to Catalog
+  Future addTextbook(Map<String, String> textbook) async {
+    return await textbooks.doc(uid).set(textbook);
+  }
+
+  // Grab Textbook 
+
+  // Grab User List
+  
+  // Grab User as a whole
   Stream<QuerySnapshot> get user{
     return users.snapshots();
   }
+
+
 }

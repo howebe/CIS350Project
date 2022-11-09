@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/models/user.dart';
+import 'package:textbook_sharing_app/screens/postbookpage.dart';
 import 'package:textbook_sharing_app/screens/wrapper.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/textbook.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             return null;
           },
       child: MaterialApp(
-        home: Wrapper(),
+        home: GeneralListing(title: 'title'),
       ),
     );
   }
