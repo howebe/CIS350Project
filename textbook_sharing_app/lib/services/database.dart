@@ -3,6 +3,7 @@ import 'package:textbook_sharing_app/textbook.dart';
 
 class DatabaseService {
 
+//PROBLEM - Figure out how to get user ID once signed in
 final String? uid;
 DatabaseService({this.uid});
 
