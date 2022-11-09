@@ -14,6 +14,7 @@ class WelcomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          //buttons
           children: [
             TextButton(
             onPressed: () {
