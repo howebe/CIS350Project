@@ -13,63 +13,34 @@ class GeneralListing extends StatefulWidget {
 }
 
 class _GeneralListingState extends State<GeneralListing> {
+
+  final genList = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          ListTile(
-            leading: Icon(Icons.create_outlined, color: Colors.black),
-            title: Text('Post a Book'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return PostBookPage();
-            }));
-            },
-          ),
-          // while(iterate through all books in the collection){
-              // ListTile(
-              //   leading: Icon(Icons.arrow_forward_ios),
-              //   title: Text(FirebaseFirestore.instance.collection(/**/).snapshots()),
-              //   subtitle: Text(FirebaseFirestore.instance.collection(/**/).snapshots()),
-              //   onTap: () {
-              //     print('Open Textbook Details');
-              //   },
-              // ),
-          ListTile(
-            leading: Icon(Icons.arrow_forward_ios),
-            title: Text('Textbook'),
-            subtitle: Text('Details'),
-            onTap: () {
-              print('Open Textbook Details');
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.arrow_forward_ios),
-            title: Text('Textbook'),
-            subtitle: Text('Details'),
-            onTap: () {
-              print('Open Textbook Details');
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.arrow_forward_ios),
-            title: Text('Textbook'),
-            subtitle: Text('Details'),
-            onTap: () {
-              print('Open Textbook Details');
-            },
-          ),
-        ],
+      body: StreamBuilder<QuerySnapshot>(
+        stream: genList.collection('textbook_catalog').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else
+            return ListView(
+              children: snapshot.data!.docs.map((doc) {
+                return Card(
+                  child: ListTile(
+                    title: Text(doc["Name"]),
+                  ),
+                );
+              }).toList(),
+            );
+        },
       ),
     );
-}
-}
-
-//THIS IS A METHOD FOR LISTING BOOKS FROM DB
-// Stream<List<textbooks>> readTextbooks() => FirebaseFirestore.instance.collection('textbook_catalog').snapshots()
-// .map((snapshot) => snapshot.docs.map((doc) => ).tolist());
+  }
+}     
