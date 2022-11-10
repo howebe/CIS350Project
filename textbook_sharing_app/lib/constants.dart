@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/home/home.dart';
-import 'package:textbook_sharing_app/screens/postbookpage.dart';
+import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 
 const textInputDecoration = InputDecoration(
   fillColor: Colors.white,

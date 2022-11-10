@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/postbookpage.dart';
+import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import '../main.dart';
+import '../../main.dart';
 
 class GeneralListing extends StatefulWidget {
   const GeneralListing({Key? key, required this.title}) : super(key: key);

@@ -12,6 +12,10 @@ AppUser? _userFromFirebaseUser(User user){
   return AppUser(uid: user.uid);
 }
 
+String? get uid {
+  return AppUser().uid;
+}
+
 // auth change user stream
  Stream<AppUser?> get user { 
          return _auth.authStateChanges().map((User? user) => _userFromFirebaseUser(user!));

@@ -29,6 +29,11 @@ final CollectionReference textbooks = FirebaseFirestore.instance.collection('tex
     return await textbooks.doc(uid).set(textbook);
   }
 
+  // ADDING USERID TO TEXTBOOK
+  Future addUserToTextbook(Map<String, String?> userID) async {
+    return await textbooks.doc(uid).update(userID);
+  }
+
   // Grab Textbook 
 
   // Grab User List

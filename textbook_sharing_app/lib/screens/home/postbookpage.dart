@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/constants.dart';
+import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/services/database.dart';
-import '../textbook.dart';
+import '../../textbook.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import '../main.dart';
+import '../../main.dart';
 
 class PostBookPage extends StatefulWidget {
   final String? uid;
@@ -15,11 +16,13 @@ class PostBookPage extends StatefulWidget {
 }
 
 class _PostBookPageState extends State<PostBookPage> {
+
+
   List<TextEditingController> _controller = [
     for (int i = 0; i < 6; i++) TextEditingController()
   ];
 
-  final DatabaseService db = DatabaseService();
+  //final DatabaseService db = DatabaseService(uid: '');
 
   List<String> conditions = [
     'Slightly Used',
@@ -119,6 +122,7 @@ class _PostBookPageState extends State<PostBookPage> {
                 if (checkInputValues()) {
 
                   final DatabaseService db = DatabaseService();
+                  final _auth = AuthService();
 
                   Map<String, String> textbook = {
                     'Name': _controller[0].text,
@@ -126,10 +130,26 @@ class _PostBookPageState extends State<PostBookPage> {
                     'Class': _controller[2].text,
                     'University': _controller[3].text,
                     'Condition': _controller[4].text,
-                    'Key': _controller[5].text
+                    'Key': _controller[5].text,
                   };
-
                   db.addTextbook(textbook);
+
+
+                //WORKING ON ASSIGNING USER FIELD TO BOOK
+                try{
+                if(_auth.uid != null){
+                  Map<String, String?> userID = {
+                    'Owner' : _auth.uid,
+                  };
+                  db.addUserToTextbook(userID);
+                  print('was here');
+                }
+                } catch (e){
+                  print('posted');
+                }
+
+                  
+                  
                   Navigator.pop(context);
                 } 
               },
