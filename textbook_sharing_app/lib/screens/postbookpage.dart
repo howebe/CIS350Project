@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/database.dart';
 import '../textbook.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -129,7 +130,6 @@ class _PostBookPageState extends State<PostBookPage> {
                   };
 
                   db.addTextbook(textbook);
-
                   Navigator.pop(context);
                 } 
               },
