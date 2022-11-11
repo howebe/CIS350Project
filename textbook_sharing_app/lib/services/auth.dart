@@ -12,8 +12,11 @@ AppUser? _userFromFirebaseUser(User user){
   return AppUser(uid: user.uid);
 }
 
-String? get uid {
-  return AppUser().uid;
+
+String get inputData {
+  final User? user = _auth.currentUser;
+  final uid = user?.uid;
+  return uid!;
 }
 
 // auth change user stream

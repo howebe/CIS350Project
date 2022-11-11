@@ -14,7 +14,6 @@ class Home extends StatelessWidget {
   //final String? uid;
   Home({super.key});
 
-  final uid = AuthService().uid;
 
   
 
@@ -47,7 +46,7 @@ class Home extends StatelessWidget {
               title: Text('Post a Book'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return PostBookPage(uid: uid);
+              return PostBookPage();
             }));
               },
             ),

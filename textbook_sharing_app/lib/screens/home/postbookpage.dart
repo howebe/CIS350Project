@@ -16,22 +16,12 @@ class PostBookPage extends StatefulWidget {
 }
 
 class _PostBookPageState extends State<PostBookPage> {
-
-
   List<TextEditingController> _controller = [
-    for (int i = 0; i < 6; i++) TextEditingController()
+    for (int i = 0; i < 3; i++) TextEditingController()
   ];
 
   //final DatabaseService db = DatabaseService(uid: '');
-
-  List<String> conditions = [
-    'Slightly Used',
-    'Good',
-    'New',
-    'Very Good',
-    'Fair',
-    'Poor'
-  ];
+  final _auth = AuthService();
 
   List<String> keys = ['MTH', 'CHM', 'PHY', 'CIS', 'EGR', 'WRT'];
 
@@ -39,11 +29,11 @@ class _PostBookPageState extends State<PostBookPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Post Book'),
+        title: const Text('Post Book'),
       ),
       body: Column(
         children: [
-          Container(
+          const SizedBox(
             height: 100,
             child: Align(
               alignment: Alignment.center,
@@ -59,99 +49,49 @@ class _PostBookPageState extends State<PostBookPage> {
           Container(
             child: TextFormField(
               controller: _controller[0],
-              decoration: const InputDecoration(
-                hintText: "Enter Book Name",
-                border: UnderlineInputBorder(),
-                labelText: 'Textbook name',
-              ),
+              decoration:
+                  textInputDecoration.copyWith(hintText: "Book name..."),
             ),
           ),
           Container(
             child: TextFormField(
               controller: _controller[1],
-              decoration: const InputDecoration(
-                hintText: "Enter Description",
-                border: UnderlineInputBorder(),
-                labelText: 'Description',
-              ),
+              decoration:
+                  textInputDecoration.copyWith(hintText: "Description..."),
             ),
           ),
           Container(
             child: TextFormField(
               controller: _controller[2],
-              decoration: const InputDecoration(
-                hintText: "Enter Class",
-                border: UnderlineInputBorder(),
-                labelText: 'Class name',
+              decoration: textInputDecoration.copyWith(
+                hintText: "Search Key...",
+                
               ),
-            ),
-          ),
-          Container(
-            child: TextFormField(
-              controller: _controller[3],
-              decoration: const InputDecoration(
-                hintText: "Enter University",
-                border: UnderlineInputBorder(),
-                labelText: 'University name',
-              ),
-            ),
-          ),
-          Container(
-            child: TextFormField(
-              controller: _controller[4],
-              decoration: const InputDecoration(
-                hintText: "Enter Condition",
-                border: UnderlineInputBorder(),
-                labelText: 'Condition',
-              ),
-            ),
-          ),
-          Container(
-            child: TextFormField(
-              controller: _controller[5],
-              decoration: const InputDecoration(
-                hintText: "Enter Matching Key",
-                border: UnderlineInputBorder(),
-                labelText: 'Key',
-              ),
+              
             ),
           ),
           Container(
             child: TextButton(
               onPressed: () {
                 if (checkInputValues()) {
-
                   final DatabaseService db = DatabaseService();
                   final _auth = AuthService();
+
+                  String userID = _auth.inputData;
 
                   Map<String, String> textbook = {
                     'Name': _controller[0].text,
                     'Description': _controller[1].text,
-                    'Class': _controller[2].text,
-                    'University': _controller[3].text,
-                    'Condition': _controller[4].text,
-                    'Key': _controller[5].text,
+                    'Key': _controller[2].text,
+                    'Owner': userID,
                   };
+
                   db.addTextbook(textbook);
 
+                  //WORKING ON ASSIGNING USER FIELD TO BOOK
 
-                //WORKING ON ASSIGNING USER FIELD TO BOOK
-                try{
-                if(_auth.uid != null){
-                  Map<String, String?> userID = {
-                    'Owner' : _auth.uid,
-                  };
-                  db.addUserToTextbook(userID);
-                  print('was here');
-                }
-                } catch (e){
-                  print('posted');
-                }
-
-                  
-                  
                   Navigator.pop(context);
-                } 
+                }
               },
               child: const Text('Press to Post Your Book!'),
             ),
@@ -166,14 +106,14 @@ class _PostBookPageState extends State<PostBookPage> {
     bool cfilled = true;
     bool kfilled = true;
 
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 3; i++) {
       if (_controller[i].text.isEmpty) {
         filled = false;
       }
     }
 
     bool detFalse = false;
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 2; i++) {
       if ((RegExp(r'^[a-z A-Z]+$').hasMatch(_controller[i].text)) &&
           (detFalse == false)) {
         filled = true;
@@ -186,24 +126,10 @@ class _PostBookPageState extends State<PostBookPage> {
       }
     }
 
-    for (var i = 0; i < conditions.length; i++) {
-      if (conditions[i].toLowerCase() == _controller[4].text.toLowerCase()) {
-        cfilled = true;
-        _controller[4].text = conditions[i];
-        break;
-      } else {
-        cfilled = false;
-      }
-    }
-
-    if (!cfilled) {
-      _controller[4].clear();
-    }
-
     for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() == _controller[5].text.toLowerCase()) {
+      if (keys[i].toLowerCase() == _controller[2].text.toLowerCase()) {
         kfilled = true;
-        _controller[5].text = keys[i];
+        _controller[2].text = keys[i];
         break;
       } else {
         kfilled = false;
@@ -211,7 +137,7 @@ class _PostBookPageState extends State<PostBookPage> {
     }
 
     if (!kfilled) {
-      _controller[5].clear();
+      _controller[2].clear();
     }
 
     if (filled && cfilled && kfilled) {
