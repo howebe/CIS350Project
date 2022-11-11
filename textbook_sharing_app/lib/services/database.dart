@@ -36,4 +36,6 @@ class DatabaseService {
   Stream<QuerySnapshot> get user {
     return users.snapshots();
   }
+
+  // Grab textbook list Stream
 }
