@@ -38,4 +38,8 @@ class DatabaseService {
   }
 
   // Grab textbook list Stream
+  Stream<QuerySnapshot> get textbook {
+    print(textbook);
+    return textbooks.snapshots();
+  }
 }

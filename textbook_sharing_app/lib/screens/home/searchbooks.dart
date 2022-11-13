@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:textbook_sharing_app/screens/home/searchbookdefault.dart';
+import 'package:textbook_sharing_app/screens/welcome/generalListing.dart';
+import 'package:textbook_sharing_app/services/database.dart';
 
 class SearchBooks extends StatefulWidget {
   const SearchBooks({super.key});
@@ -9,118 +12,84 @@ class SearchBooks extends StatefulWidget {
 }
 
 class _SearchBooksState extends State<SearchBooks> {
+  Future<QuerySnapshot>? postTextbookList;
+  String userText = '';
 
-final genList = FirebaseFirestore.instance;
+  initSearchBooks(String textEntered) {
+    postTextbookList = FirebaseFirestore.instance
+        .collection("textbook_catalog")
+        .where("Key", isEqualTo: textEntered.toUpperCase())
+        .get();
+
+    setState(() {
+      postTextbookList;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Title(
-          color: Colors.white,
-          child: Text('Search for Books'),
+        //automaticallyImplyLeading: false,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.blue, Colors.deepOrange.shade300]),
+          ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: mySearchDelegate(),
-              );
-            },
-            icon: const Icon(Icons.search),
-          )
-        ],
+        title: TextField(
+          onChanged: (textEntered) {
+            setState(() {
+              userText = textEntered;
+            });
+
+            initSearchBooks(textEntered);
+          },
+          decoration: InputDecoration(
+            hintText: "Search for textbook...",
+            hintStyle: const TextStyle(color: Colors.white54),
+            border: InputBorder.none,
+            suffixIcon: IconButton(
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                initSearchBooks(userText);
+              },
+            ),
+            // prefixIcon: IconButton(
+            //   icon: const Padding(
+            //     padding: EdgeInsets.only(right: 12, bottom: 4),
+            //     child: Icon(
+            //       Icons.arrow_back,
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            //   onPressed: () {
+
+            //   },
+            // ),
+          ),
+        ),
       ),
-      body: StreamBuilder<QuerySnapshot>(
-        stream: genList.collection('textbook_catalog').snapshots(),
+      body: FutureBuilder<QuerySnapshot>(
+        future: postTextbookList,
         builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else
-            return ListView(
-              children: snapshot.data!.docs.map((doc) {
-                return Card(
-                  child: ListTile(
-                    title: Text(doc["Name"]),
-                  ),
-                );
-              }).toList(),
-            );
+          return snapshot.hasData
+              ? ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ListTile(
+                        title: Text(snapshot.data!.docs[index]["Name"]),
+                      ),
+                    );
+                  },
+                )
+              :  const SearchDefault();
         },
       ),
-    );
-  }
-}
-
-class mySearchDelegate extends SearchDelegate {
-
-  List<String> searchResults = [
-      'brazil',
-      'china',
-      'india',
-      'russia',
-      'usa',
-      'a',
-      'a',
-      'a',
-      'a',
-      'a',
-      'a',
-      'a',
-    ];
-
-  @override
-  Widget? buildLeading(BuildContext context) => IconButton(
-        onPressed: () => close(context, null),
-        icon: const Icon(Icons.arrow_back),
-      );
-
-  @override
-  List<Widget>? buildActions(BuildContext context) => [
-        IconButton(
-          onPressed: () {
-            if (query.isEmpty) {
-              close(context, null);
-            } else {
-              query = '';
-            }
-          },
-          icon: const Icon(Icons.clear),
-        )
-      ];
-
-  @override
-  Widget buildResults(BuildContext context) => Center(
-    child: Text(
-      query,
-      style: const TextStyle(fontSize: 64),
-    ),
-  );
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    // Search though database entries
-    List<String> suggestions = searchResults.where((searchResults) {
-      final result = searchResults.toLowerCase();
-      final input = query.toLowerCase();
-      return result.contains(input);
-
-    }).toList();
-
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (context, index) {
-        final suggestion = suggestions[index];
-        return ListTile(
-          title: Text(suggestion),
-          onTap: (() {
-            query = suggestion;
-          }),
-        );
-      },
     );
   }
 }
