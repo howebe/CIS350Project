@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
-import 'package:textbook_sharing_app/screens/detailsPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import '../../main.dart';
 
-class GeneralListing extends StatefulWidget {
-  const GeneralListing({Key? key, required this.title}) : super(key: key);
+class DetailsPage extends StatefulWidget {
+  const DetailsPage({Key? key, required this.title, required this.doc}) : super(key: key);
   final String title;
+  final QueryDocumentSnapshot doc;
 
   @override
-  State<GeneralListing> createState() => _GeneralListingState();
+  State<DetailsPage> createState() => _DetailsPageState();
 }
 
-class _GeneralListingState extends State<GeneralListing> {
+class _DetailsPageState extends State<DetailsPage> {
 
-  final genList = FirebaseFirestore.instance;
+  final details = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class _GeneralListingState extends State<GeneralListing> {
         title: Text(widget.title),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: genList.collection('textbook_catalog').snapshots(),
+        stream: details.collection('textbook_catalog').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -35,11 +33,7 @@ class _GeneralListingState extends State<GeneralListing> {
               children: snapshot.data!.docs.map((doc) {
                 return Card(
                   child: ListTile(
-                    title: Text(doc["Name"]),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return const DetailsPage(title: 'Book Details', doc: doc);
-            }));}
+                    title: Text(doc["Description"]),
                   ),
                 );
               }).toList(),
