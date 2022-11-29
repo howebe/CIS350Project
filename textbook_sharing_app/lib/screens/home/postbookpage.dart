@@ -27,6 +27,7 @@ class _PostBookPageState extends State<PostBookPage> {
       backgroundColor: Colors.blue[600],
       appBar: AppBar(
         title: const Text('Post Book'),
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
