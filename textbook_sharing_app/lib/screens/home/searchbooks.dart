@@ -29,12 +29,11 @@ class _SearchBooksState extends State<SearchBooks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[600],
       appBar: AppBar(
-        //automaticallyImplyLeading: false,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.blue, Colors.deepOrange.shade300]),
+            gradient: LinearGradient(colors: [Colors.blue, Colors.white]),
           ),
         ),
         title: TextField(
@@ -47,29 +46,17 @@ class _SearchBooksState extends State<SearchBooks> {
           },
           decoration: InputDecoration(
             hintText: "Search for textbook...",
-            hintStyle: const TextStyle(color: Colors.white54),
+            hintStyle: const TextStyle(color: Colors.white),
             border: InputBorder.none,
             suffixIcon: IconButton(
               icon: const Icon(
                 Icons.search,
-                color: Colors.white,
+                color: Colors.black,
               ),
               onPressed: () {
                 initSearchBooks(userText);
               },
             ),
-            // prefixIcon: IconButton(
-            //   icon: const Padding(
-            //     padding: EdgeInsets.only(right: 12, bottom: 4),
-            //     child: Icon(
-            //       Icons.arrow_back,
-            //       color: Colors.white,
-            //     ),
-            //   ),
-            //   onPressed: () {
-
-            //   },
-            // ),
           ),
         ),
       ),
@@ -87,7 +74,7 @@ class _SearchBooksState extends State<SearchBooks> {
                     );
                   },
                 )
-              :  const SearchDefault();
+              : const SearchDefault();
         },
       ),
     );

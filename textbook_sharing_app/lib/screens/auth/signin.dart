@@ -3,11 +3,9 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 
 class SignIn extends StatefulWidget {
-  // const SignIn({super.key});
-
+// const SignIn({super.key});
   final Function toggleView;
   SignIn({required this.toggleView});
-
   @override
   State<SignIn> createState() => _SignInState();
 }
@@ -15,17 +13,15 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-
   String email = '';
   String password = '';
   String error = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.blue[200],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.black,
         elevation: 0.0,
         title: Text('Sign in'),
         actions: <Widget>[
@@ -35,7 +31,7 @@ class _SignInState extends State<SignIn> {
             onPressed: () {
               widget.toggleView();
             },
-            )
+          )
         ],
       ),
       body: Container(
@@ -54,9 +50,12 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: "Password..."),
+                decoration:
+                    textInputDecoration.copyWith(hintText: "Password..."),
                 obscureText: true,
-                validator: (value) => value!.length < 6 ? 'Enter a password 6+ characters long' : null,
+                validator: (value) => value!.length < 6
+                    ? 'Enter a password 6+ characters long'
+                    : null,
                 onChanged: (value) {
                   setState(() => password = value);
                 },
@@ -68,18 +67,20 @@ class _SignInState extends State<SignIn> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    if(_formKey.currentState!.validate()){
-                      dynamic result = await _auth.signInWithEmailAndPassword(email, password);
-                      if(result == null){
-                        setState(() => error = 'Unable to Validate Credentials');
+                    if (_formKey.currentState!.validate()) {
+                      dynamic result = await _auth.signInWithEmailAndPassword(
+                          email, password);
+                      if (result == null) {
+                        setState(
+                            () => error = 'Unable to Validate Credentials');
                       }
                     }
                   }),
-                  SizedBox(height: 12),
-                  Text(
-                    error,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0),
-                  )
+              SizedBox(height: 12),
+              Text(
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14.0),
+              )
             ],
           ),
         ),

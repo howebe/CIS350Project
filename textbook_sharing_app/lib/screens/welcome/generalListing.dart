@@ -20,8 +20,10 @@ class _GeneralListingState extends State<GeneralListing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[600],
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.black,
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: genList.collection('textbook_catalog').snapshots(),
@@ -30,22 +32,24 @@ class _GeneralListingState extends State<GeneralListing> {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else
+          } else {
             return ListView(
               children: snapshot.data!.docs.map((doc) {
                 return Card(
                   child: ListTile(
                     title: Text(doc["Name"]),
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return const DetailsPage(title: 'Book Details', doc: doc);
-            }));}
+            //           Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //              return const DetailsPage(title: 'Book Details', doc: doc);
+            // }));
+            }
                   ),
                 );
               }).toList(),
             );
+          }
         },
       ),
     );
   }
-}     
+}    

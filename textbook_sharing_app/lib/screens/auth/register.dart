@@ -3,29 +3,25 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 
 class Register extends StatefulWidget {
-  // const Register({super.key});
-
+// const Register({super.key});
   final Function toggleView;
   Register({required this.toggleView});
-
   @override
   State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
-
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
   String error = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
+      backgroundColor: Colors.blue[200],
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.black,
         elevation: 0.0,
         title: Text('Sign up'),
         actions: <Widget>[
@@ -35,7 +31,7 @@ class _RegisterState extends State<Register> {
             onPressed: () {
               widget.toggleView();
             },
-            )
+          )
         ],
       ),
       body: Container(
@@ -54,9 +50,12 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: "Password..."),
+                decoration:
+                    textInputDecoration.copyWith(hintText: "Password..."),
                 obscureText: true,
-                validator: (value) => value!.length < 6 ? 'Enter a password 6+ characters long' : null,
+                validator: (value) => value!.length < 6
+                    ? 'Enter a password 6+ characters long'
+                    : null,
                 onChanged: (value) {
                   setState(() => password = value);
                 },
@@ -68,18 +67,19 @@ class _RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
-                    if(_formKey.currentState!.validate()){
-                      dynamic result = await _auth.registerWithEmailAndPassword(email, password);
-                      if(result == null){
+                    if (_formKey.currentState!.validate()) {
+                      dynamic result = await _auth.registerWithEmailAndPassword(
+                          email, password);
+                      if (result == null) {
                         setState(() => error = 'please supply a valid email');
                       }
                     }
                   }),
-                  SizedBox(height: 12),
-                  Text(
-                    error,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0),
-                  )
+              SizedBox(height: 12),
+              Text(
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14.0),
+              )
             ],
           ),
         ),
