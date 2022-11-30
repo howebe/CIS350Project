@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import '../../main.dart';
 
 class SearchDefault extends StatefulWidget {
   const SearchDefault({Key? key}) : super(key: key);
@@ -18,6 +15,7 @@ class _SearchDefaultState extends State<SearchDefault> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[600],
       body: StreamBuilder<QuerySnapshot>(
         stream: genList.collection('textbook_catalog').snapshots(),
         builder: (context, snapshot) {
@@ -25,7 +23,7 @@ class _SearchDefaultState extends State<SearchDefault> {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else
+          } else {
             return ListView(
               children: snapshot.data!.docs.map((doc) {
                 return Card(
@@ -35,6 +33,7 @@ class _SearchDefaultState extends State<SearchDefault> {
                 );
               }).toList(),
             );
+          }
         },
       ),
     );

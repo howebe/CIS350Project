@@ -15,7 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.black87,
         title: Title(
           color: Colors.white,
-          child: Text('Profile Page'),
+          child: const Text('Profile Page'),
         ),
       ),
     );

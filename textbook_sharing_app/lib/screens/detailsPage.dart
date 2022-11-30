@@ -25,10 +25,10 @@ class _DetailsPageState extends State<DetailsPage> {
         stream: details.collection('textbook_catalog').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
-          } else
+          } else {
             return ListView(
               children: snapshot.data!.docs.map((doc) {
                 return Card(
@@ -38,6 +38,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 );
               }).toList(),
             );
+          }
         },
       ),
     );

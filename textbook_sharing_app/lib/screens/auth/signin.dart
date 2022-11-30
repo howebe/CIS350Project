@@ -5,7 +5,7 @@ import 'package:textbook_sharing_app/services/auth.dart';
 class SignIn extends StatefulWidget {
 // const SignIn({super.key});
   final Function toggleView;
-  SignIn({required this.toggleView});
+  const SignIn({super.key, required this.toggleView});
   @override
   State<SignIn> createState() => _SignInState();
 }
@@ -23,11 +23,11 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
-        title: Text('Sign in'),
+        title: const Text('Sign in'),
         actions: <Widget>[
           ElevatedButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Register'),
+            icon: const Icon(Icons.person),
+            label: const Text('Register'),
             onPressed: () {
               widget.toggleView();
             },
@@ -35,12 +35,12 @@ class _SignInState extends State<SignIn> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: textInputDecoration.copyWith(hintText: "Email..."),
                 validator: (value) => value!.isEmpty ? 'Enter an email' : null,
@@ -48,7 +48,7 @@ class _SignInState extends State<SignIn> {
                   setState(() => email = value);
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration:
                     textInputDecoration.copyWith(hintText: "Password..."),
@@ -60,9 +60,9 @@ class _SignInState extends State<SignIn> {
                   setState(() => password = value);
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Sign in',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -76,10 +76,10 @@ class _SignInState extends State<SignIn> {
                       }
                     }
                   }),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
+                style: const TextStyle(color: Colors.red, fontSize: 14.0),
               )
             ],
           ),

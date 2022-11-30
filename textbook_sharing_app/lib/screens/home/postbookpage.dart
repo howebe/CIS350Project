@@ -2,24 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/services/database.dart';
-import '../../textbook.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import '../../main.dart';
 
 class PostBookPage extends StatefulWidget {
   final String? uid;
-  PostBookPage({this.uid});
+  const PostBookPage({super.key, this.uid});
   @override
   State<PostBookPage> createState() => _PostBookPageState();
 }
 
 class _PostBookPageState extends State<PostBookPage> {
-  List<TextEditingController> _controller = [
+  final List<TextEditingController> _controller = [
     for (int i = 0; i < 3; i++) TextEditingController()
   ];
-//final DatabaseService db = DatabaseService(uid: '');
-  final _auth = AuthService();
+  
   List<String> keys = ['MTH', 'CHM', 'PHY', 'CIS', 'EGR', 'WRT'];
   @override
   Widget build(BuildContext context) {
@@ -31,61 +26,53 @@ class _PostBookPageState extends State<PostBookPage> {
       ),
       body: Column(
         children: [
-          Container(
-            child: TextFormField(
-              controller: _controller[0],
-              decoration:
-                  textInputDecoration.copyWith(hintText: "Book name..."),
+          TextFormField(
+            controller: _controller[0],
+            decoration:
+                textInputDecoration.copyWith(hintText: "Book name..."),
+          ),
+          TextFormField(
+            controller: _controller[1],
+            decoration:
+                textInputDecoration.copyWith(hintText: "Description..."),
+          ),
+          TextFormField(
+            controller: _controller[2],
+            decoration: textInputDecoration.copyWith(
+              hintText: "Search Key...",
             ),
           ),
-          Container(
-            child: TextFormField(
-              controller: _controller[1],
-              decoration:
-                  textInputDecoration.copyWith(hintText: "Description..."),
-            ),
-          ),
-          Container(
-            child: TextFormField(
-              controller: _controller[2],
-              decoration: textInputDecoration.copyWith(
-                hintText: "Search Key...",
-              ),
-            ),
-          ),
-          Container(
-            child: TextButton(
-              onPressed: () {
-                if (checkInputValues()) {
-                  final DatabaseService db = DatabaseService();
-                  final _auth = AuthService();
-                  String userID = _auth.inputData;
-                  Map<String, String> textbook = {
-                    'Name': _controller[0].text,
-                    'Description': _controller[1].text,
-                    'Key': _controller[2].text,
-                    'Owner': userID,
-                  };
-                  db.addTextbook(textbook);
-                  Navigator.pop(context);
-                }
-              },
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Colors.white, // your color here
-                        width: 5,
-                      ),
-                      borderRadius: BorderRadius.circular(0)))),
-              child: Container(
-                width: 200,
-                child: const Text(
-                  textAlign: TextAlign.center,
-                  'Continue without signing in',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                  ),
+          TextButton(
+            onPressed: () {
+              if (checkInputValues()) {
+                final DatabaseService db = DatabaseService();
+                final auth = AuthService();
+                String userID = auth.inputData;
+                Map<String, String> textbook = {
+                  'Name': _controller[0].text,
+                  'Description': _controller[1].text,
+                  'Key': _controller[2].text,
+                  'Owner': userID,
+                };
+                db.addTextbook(textbook);
+                Navigator.pop(context);
+              }
+            },
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Colors.white, // your color here
+                      width: 5,
+                    ),
+                    borderRadius: BorderRadius.circular(0)))),
+            child: const SizedBox(
+              width: 200,
+              child: Text(
+                textAlign: TextAlign.center,
+                'Post a new book',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
                 ),
               ),
             ),

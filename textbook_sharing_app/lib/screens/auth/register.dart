@@ -3,9 +3,8 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 
 class Register extends StatefulWidget {
-// const Register({super.key});
   final Function toggleView;
-  Register({required this.toggleView});
+  const Register({super.key, required this.toggleView});
   @override
   State<Register> createState() => _RegisterState();
 }
@@ -23,11 +22,11 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
-        title: Text('Sign up'),
+        title: const Text('Sign up'),
         actions: <Widget>[
           ElevatedButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Sign In'),
+            icon: const Icon(Icons.person),
+            label: const Text('Sign In'),
             onPressed: () {
               widget.toggleView();
             },
@@ -40,7 +39,7 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: textInputDecoration.copyWith(hintText: "Email..."),
                 validator: (value) => value!.isEmpty ? 'Enter an email' : null,
@@ -48,7 +47,7 @@ class _RegisterState extends State<Register> {
                   setState(() => email = value);
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration:
                     textInputDecoration.copyWith(hintText: "Password..."),
@@ -60,9 +59,9 @@ class _RegisterState extends State<Register> {
                   setState(() => password = value);
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Sign up',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -75,10 +74,10 @@ class _RegisterState extends State<Register> {
                       }
                     }
                   }),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
+                style: const TextStyle(color: Colors.red, fontSize: 14.0),
               )
             ],
           ),

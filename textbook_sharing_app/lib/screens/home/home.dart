@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 import 'package:textbook_sharing_app/screens/home/profilepage.dart';
 import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
-import 'package:textbook_sharing_app/screens/welcome/welcomepage.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/services/database.dart';
 import 'package:provider/provider.dart';
@@ -22,13 +20,13 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blue[600],
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: Text('TextBook App'),
+          title: const Text('TextBook App'),
           backgroundColor: Colors.black,
           elevation: 0.0,
           actions: <Widget>[
             ElevatedButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('logout'),
+              icon: const Icon(Icons.person),
+              label: const Text('logout'),
               onPressed: () async {
                 await _auth.signOut();
               },
@@ -42,8 +40,8 @@ class Home extends StatelessWidget {
               color: Colors.white,
             ),
             ListTile(
-              leading: Icon(Icons.person, color: Colors.white),
-              title: Text(
+              leading: const Icon(Icons.person, color: Colors.white),
+              title: const Text(
                 'Profile',
                 style: TextStyle(
                   color: Colors.white,
@@ -52,7 +50,7 @@ class Home extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ProfilePage();
+                  return const ProfilePage();
                 }));
               },
             ),
@@ -61,8 +59,8 @@ class Home extends StatelessWidget {
               color: Colors.white,
             ),
             ListTile(
-              leading: Icon(Icons.create_outlined, color: Colors.white),
-              title: Text(
+              leading: const Icon(Icons.create_outlined, color: Colors.white),
+              title: const Text(
                 'Post a Book',
                 style: TextStyle(
                   color: Colors.white,
@@ -71,7 +69,7 @@ class Home extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return PostBookPage();
+                  return const PostBookPage();
                 }));
               },
             ),
@@ -80,8 +78,8 @@ class Home extends StatelessWidget {
               color: Colors.white,
             ),
             ListTile(
-              leading: Icon(Icons.search, color: Colors.white),
-              title: Text(
+              leading: const Icon(Icons.search, color: Colors.white),
+              title: const Text(
                 'Search Books',
                 style: TextStyle(
                   color: Colors.white,
@@ -90,7 +88,7 @@ class Home extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SearchBooks();
+                  return const SearchBooks();
                 }));
               },
             ),

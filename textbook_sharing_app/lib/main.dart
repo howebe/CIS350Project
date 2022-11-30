@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/models/user.dart';
-import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
-import 'package:textbook_sharing_app/screens/wrapper.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
-import 'package:textbook_sharing_app/textbook.dart';
-import 'package:textbook_sharing_app/screens/welcome/generalListing.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:textbook_sharing_app/screens/welcome/welcomepage.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +8,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,10 +21,9 @@ class MyApp extends StatelessWidget {
       initialData: null,
       value: AuthService().user,
       catchError: (_, err) {
-            print(err);
             return null;
           },
-      child: MaterialApp(
+      child: const MaterialApp(
         home: WelcomePage(title: 'Welcome to Textbook Sharing'),
       ),
     );

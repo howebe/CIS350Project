@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/home/searchbookdefault.dart';
-import 'package:textbook_sharing_app/screens/welcome/generalListing.dart';
-import 'package:textbook_sharing_app/services/database.dart';
 
 class SearchBooks extends StatefulWidget {
   const SearchBooks({super.key});
@@ -18,7 +16,7 @@ class _SearchBooksState extends State<SearchBooks> {
   initSearchBooks(String textEntered) {
     postTextbookList = FirebaseFirestore.instance
         .collection("textbook_catalog")
-        .where("Key", isEqualTo: textEntered.toUpperCase())
+        .where("Name", isEqualTo: textEntered)
         .get();
 
     setState(() {
@@ -32,7 +30,7 @@ class _SearchBooksState extends State<SearchBooks> {
       backgroundColor: Colors.blue[600],
       appBar: AppBar(
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [Colors.blue, Colors.white]),
           ),
         ),
