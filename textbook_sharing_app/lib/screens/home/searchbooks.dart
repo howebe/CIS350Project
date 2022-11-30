@@ -16,7 +16,8 @@ class _SearchBooksState extends State<SearchBooks> {
   initSearchBooks(String textEntered) {
     postTextbookList = FirebaseFirestore.instance
         .collection("textbook_catalog")
-        .where("Name", isEqualTo: textEntered)
+        .where("Name", isGreaterThanOrEqualTo: textEntered)
+        .where("Name", isLessThanOrEqualTo: '$textEntered~')
         .get();
 
     setState(() {

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:textbook_sharing_app/models/user.dart';
 import 'package:textbook_sharing_app/services/database.dart';
-import 'package:textbook_sharing_app/textbook.dart';
 
 class AuthService {
 
@@ -31,7 +30,6 @@ Future signInWithEmailAndPassword(String email, String password) async {
     User? user = result.user;
     return _userFromFirebaseUser(user!);
   }catch (e){
-    print(e.toString());
     return null;
   }
 }
@@ -43,9 +41,8 @@ Future registerWithEmailAndPassword(String email, String password) async {
     UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
     User? user = result.user;
     await DatabaseService(uid: user!.uid).updateUser([]);
-    return _userFromFirebaseUser(user!);
+    return _userFromFirebaseUser(user);
   }catch (e){
-    print(e.toString());
     return null;
   }
 }
@@ -56,7 +53,6 @@ Future signOut() async {
   try{
     return await _auth.signOut();
   }catch(e){
-    print(e.toString());
     return null;
   }
 }
