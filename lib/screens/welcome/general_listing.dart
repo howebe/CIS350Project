@@ -25,7 +25,7 @@ class _GeneralListingState extends State<GeneralListing> {
         stream: genList.collection('textbook_catalog').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
@@ -35,9 +35,7 @@ class _GeneralListingState extends State<GeneralListing> {
                   child: ListTile(
                     title: Text(doc["Name"]),
                     onTap: () {
-            //           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //              return const DetailsPage(title: 'Book Details', doc: doc);
-            // }));
+                      
             }
                   ),
                 );
