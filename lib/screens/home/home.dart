@@ -9,7 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
-//final String? uid;
+
   Home({super.key});
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/welcome/generalListing.dart';
-import 'package:textbook_sharing_app/screens/auth/auth.dart';
+import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
 import 'package:textbook_sharing_app/screens/wrapper.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -22,7 +21,6 @@ class _WelcomePageState extends State<WelcomePage> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-//buttons
             children: [
               TextButton(
                 onPressed: () {
@@ -32,15 +30,15 @@ class _WelcomePageState extends State<WelcomePage> {
                 },
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: Colors.white, // your color here
                           width: 5,
                         ),
                         borderRadius: BorderRadius.circular(0)))),
-                child: Container(
+                child: const SizedBox(
                   height: 100,
                   width: 200,
-                  child: const Text(
+                  child: Text(
                     textAlign: TextAlign.center,
                     'Continue without signing in',
                     style: TextStyle(
@@ -61,15 +59,15 @@ class _WelcomePageState extends State<WelcomePage> {
                 },
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: Colors.white, // your color here
                           width: 5,
                         ),
                         borderRadius: BorderRadius.circular(0)))),
-                child: Container(
+                child: const SizedBox(
                   height: 100,
                   width: 200,
-                  child: const Text(
+                  child: Text(
                     textAlign: TextAlign.center,
                     'Login or Register',
                     style: TextStyle(
