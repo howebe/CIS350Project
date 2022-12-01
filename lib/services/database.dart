@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:textbook_sharing_app/textbook.dart';
 
 class DatabaseService {
-//PROBLEM - Figure out how to get user ID once signed in
   final String? uid;
   DatabaseService({this.uid});
 
@@ -28,10 +27,6 @@ class DatabaseService {
     return await textbooks.doc(uid).set(textbook);
   }
 
-  // Grab Textbook
-
-  // Grab User List
-
   // Grab User as a whole
   Stream<QuerySnapshot> get user {
     return users.snapshots();
@@ -39,7 +34,6 @@ class DatabaseService {
 
   // Grab textbook list Stream
   Stream<QuerySnapshot> get textbook {
-    print(textbook);
     return textbooks.snapshots();
   }
 }

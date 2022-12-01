@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/welcome/generalListing.dart';
-import 'package:textbook_sharing_app/screens/auth/auth.dart';
+import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
 import 'package:textbook_sharing_app/screens/wrapper.dart';
 
 class WelcomePage extends StatefulWidget {
