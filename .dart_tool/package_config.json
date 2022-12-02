@@ -69,7 +69,7 @@
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///Users/brandonbaker/.pub-cache/hosted/pub.dev/firebase_auth-4.1.4",
+      "rootUri": "file:///Users/brandonbaker/.pub-cache/hosted/pub.dev/firebase_auth-4.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -254,7 +254,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-12-02T00:07:36.221169Z",
+  "generated": "2022-12-02T01:21:38.141587Z",
   "generator": "pub",
   "generatorVersion": "2.19.0-430.0.dev"
 }
