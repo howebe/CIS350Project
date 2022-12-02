@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({Key? key, required this.title, required this.doc}) : super(key: key);

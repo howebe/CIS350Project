@@ -3,7 +3,7 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 
 class SignIn extends StatefulWidget {
-// const SignIn({super.key});
+  
   final Function toggleView;
   const SignIn({super.key, required this.toggleView});
   @override

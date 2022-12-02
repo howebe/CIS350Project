@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
-import 'package:textbook_sharing_app/screens/detailsPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import '../../main.dart';
 
 class GeneralListing extends StatefulWidget {
   const GeneralListing({Key? key, required this.title}) : super(key: key);
@@ -29,7 +25,7 @@ class _GeneralListingState extends State<GeneralListing> {
         stream: genList.collection('textbook_catalog').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
@@ -39,9 +35,7 @@ class _GeneralListingState extends State<GeneralListing> {
                   child: ListTile(
                     title: Text(doc["Name"]),
                     onTap: () {
-            //           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //              return const DetailsPage(title: 'Book Details', doc: doc);
-            // }));
+                      
             }
                   ),
                 );
