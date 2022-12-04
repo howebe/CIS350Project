@@ -75,9 +75,9 @@ style="width:75%">
 
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2014.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 5. Example User Interface for Login Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172782.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 5. Welcome Screen
 </figcaption>
 </p>
 </figure>
@@ -88,9 +88,9 @@ style="width:75%">
 
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%201.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 6. Example User Interface for Home Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172786.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 6. General Textbook Listing
 </figcaption>
 </p>
 </figure>
@@ -101,9 +101,11 @@ style="width:75%">
 
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2019.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 7. Example User Interface for Profile Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172792.png" alt="Trulli"
+style="width:25%">
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172794.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 7. Authenitification Screens
 </figcaption>
 </p>
 </figure>
@@ -113,9 +115,9 @@ style="width:75%">
 <font size=3>When the user has successfully logged in, they will be automatically directed to their home page. The home page consists of two options, posting a book, or searching for a book. When the user is ready to log out of their account, they can click the logout button in the top right to return to the welcome page. The user interface for a users home page can be seen below in Figure 8.
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2024.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 8. Example User Interface for Filtering Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172813.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. User's Home Page
 </figcaption>
 </p>
 </figure>
@@ -125,9 +127,9 @@ style="width:75%">
 <font size=3>If the user has a textbook they would like to post to the app, they can navigate to the post textbook screen in the user's home page. This screen has two text fields, one for the name of the book, and another for the book's description. Once the user is ready to post their textbook, they can click the post a new book button below, or if they decide they wanted to cancel posting a book they can navigate back to their home page. The user interface for posting a book is shown below in Figure 9.
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2024.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 8. Example User Interface for Filtering Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172930.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. Screen to Post a Book
 </figcaption>
 </p>
 </figure>
@@ -137,9 +139,9 @@ style="width:75%">
 <font size=3>If the user wants a specific textbook, they can navigate to search textbooks through their home page. When the user first enters this page, they will see a listing of all the books by default. Once they are ready to search for a specific book, they click on the top bar to the left of the search icon. The user then can search for a book by the name of the textbook. Just like the general listing of books before sign in, the user can scroll through all books found to find the book they are looking for. The search automatically updates as the user types. When finished, they can navigate back to their home page through the arrow in the top left. The user interface for searching for a book can be found below in Figure 10.
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2024.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 8. Example User Interface for Filtering Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172951.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. Search Books
 </figcaption>
 </p>
 </figure>
