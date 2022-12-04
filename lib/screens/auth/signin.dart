@@ -23,7 +23,7 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
-        title: const Text('Sign in'),
+        title: const Text('Sign In'),
         actions: <Widget>[
           ElevatedButton.icon(
             icon: const Icon(Icons.person),
@@ -63,7 +63,7 @@ class _SignInState extends State<SignIn> {
               const SizedBox(height: 20),
               ElevatedButton(
                   child: const Text(
-                    'Sign in',
+                    'Sign In',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {

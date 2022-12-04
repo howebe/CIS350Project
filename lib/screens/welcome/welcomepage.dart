@@ -36,7 +36,6 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                         borderRadius: BorderRadius.circular(0)))),
                 child: const SizedBox(
-                  height: 100,
                   width: 200,
                   child: Text(
                     textAlign: TextAlign.center,
@@ -65,7 +64,6 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                         borderRadius: BorderRadius.circular(0)))),
                 child: const SizedBox(
-                  height: 100,
                   width: 200,
                   child: Text(
                     textAlign: TextAlign.center,

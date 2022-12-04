@@ -12,10 +12,9 @@ class PostBookPage extends StatefulWidget {
 
 class _PostBookPageState extends State<PostBookPage> {
   final List<TextEditingController> _controller = [
-    for (int i = 0; i < 3; i++) TextEditingController()
+    for (int i = 0; i < 2; i++) TextEditingController()
   ];
   
-  List<String> keys = ['MTH', 'CHM', 'PHY', 'CIS', 'EGR', 'WRT'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,21 +25,24 @@ class _PostBookPageState extends State<PostBookPage> {
       ),
       body: Column(
         children: [
+          Container(
+            height: 10,
+          ),
           TextFormField(
             controller: _controller[0],
             decoration:
                 textInputDecoration.copyWith(hintText: "Book name..."),
+          ),
+          Container(
+            height: 10,
           ),
           TextFormField(
             controller: _controller[1],
             decoration:
                 textInputDecoration.copyWith(hintText: "Description..."),
           ),
-          TextFormField(
-            controller: _controller[2],
-            decoration: textInputDecoration.copyWith(
-              hintText: "Search Key...",
-            ),
+          Container(
+            height: 15,
           ),
           TextButton(
             onPressed: () {
@@ -51,7 +53,6 @@ class _PostBookPageState extends State<PostBookPage> {
                 Map<String, String> textbook = {
                   'Name': _controller[0].text,
                   'Description': _controller[1].text,
-                  'Key': _controller[2].text,
                   'Owner': userID,
                 };
                 db.addTextbook(textbook);
@@ -84,41 +85,12 @@ class _PostBookPageState extends State<PostBookPage> {
 
   bool checkInputValues() {
     bool filled = true;
-    bool cfilled = true;
-    bool kfilled = true;
-    for (var i = 0; i < 3; i++) {
+    
+    for (var i = 0; i < 2; i++) {
       if (_controller[i].text.isEmpty) {
         filled = false;
       }
     }
-    bool detFalse = false;
-    for (var i = 0; i < 2; i++) {
-      if ((RegExp(r'^[a-z A-Z]+$').hasMatch(_controller[i].text)) &&
-          (detFalse == false)) {
-        filled = true;
-      } else if (RegExp(r'^[a-z A-Z]+$').hasMatch(_controller[i].text)) {
-        detFalse = false;
-      } else {
-        filled = false;
-        detFalse = true;
-        _controller[i].clear();
-      }
-    }
-    for (var i = 0; i < keys.length; i++) {
-      if (keys[i].toLowerCase() == _controller[2].text.toLowerCase()) {
-        kfilled = true;
-        _controller[2].text = keys[i];
-        break;
-      } else {
-        kfilled = false;
-      }
-    }
-    if (!kfilled) {
-      _controller[2].clear();
-    }
-    if (filled && cfilled && kfilled) {
-      return true;
-    }
-    return false;
+    return filled;
   }
 }
