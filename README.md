@@ -22,9 +22,9 @@ The textbook sharing mobile app is based on Flutter Firebase architecture. Flutt
 
 <figure>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/71044494/193474192-3c65a107-84dd-420d-94c9-44dceadf897b.png" alt="Trulli"
-style="width:50%">
-<p align="center">Figure 1. User Interface to Server Design of Book Borrowing System
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS350_Arch_Design.png" alt="Trulli"
+style="width:75%">
+<p align="center">Figure 1. User Interface to Server Design of Textbook Sharing App
 </figcaption>
 </p>
 </figure>
