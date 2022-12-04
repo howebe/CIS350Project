@@ -44,26 +44,26 @@ style="width:75%">
 
 <font size=4> <b>3.2 Use Case Diagram</b>
 
-<font size=3>Figure 3 shows the general use case for the borrow book web app. Inside the use case, the user can perform 5 tasks. The user can browse books without login by default, but once logged in, the user can browse books, post a book to lend, borrow a book, and view their account. Authentication is automatically part of login and must be done when logging in no matter what. Similarly, when browsing books, there is a search bar to look for specific books as well as an optional filter to narrow down the search. In the borrow book functionality, a user is able to message a lender or just add the book to the cart before borrowing. When a user views their profile they can see the books listed and borrowed, and the user can confirm borrows or returns to make sure the book was actually rented and returned to its owner.
+<font size=3>Figure 3 shows the general use case for the textbook sharing mobile app. Inside the use case, the user can perform 3 tasks. The user can login to their account or create an account, they can browse the listing of books, and they can post a book. Login includes authentification because authentication must be done in order to gain extra app functionality. Once logged in, the user can search for the book that they are interested in. Also, the user can post a textbook to the listing after they have logged in.
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/CIS350-UseCaseDiagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS350-%20Use%20Case%20Diagram.png" alt="Trulli"
 style="width:60%">
-<p align="center">Figure 3. Use Case Diagram for Borrowing Books
+<p align="center">Figure 3. Use Case Diagram for Browsing Books
 </figcaption>
 </p>
 </figure>
 
 <font size=4> <b>3.3 Sequence Diagram</b>
 
-<font size=3>Figure 4 shows the sequence diagram for borrowing a book. When the user first opens the webapp they are greeted with a welcome message and sent to the book catalog. The book catalog is a listing of all the books posted with little user functionality. When a user decides to login or create an account, they will be authenicated and allowed functionality that comes with an account. With a successfull login or sign up, the user reaches the home page where they can browse and borrow books. Once a book is selected, the user adds the book to their cart or can cancel the transaction. Both of which will send the user back to the home page. When a user logs out from the home page, they will be sent back to the general catalog.
+<font size=3>Figure 4 shows the sequence diagram for browsing books. The user starts by opening the app, then they will be directed to the welcome page. From the welcome page, they can either try to log in or view the general listing of all the textbooks. If the user successfully signs in or signs up, they will be directed to the home page where they will get added functionality of the app. They will be able to search for a specific book they are looking for. Once they are done searching for a book, they will be brought back to the home page, and logout when they are done. If the user doesn't want to log in and would like to see what books are available, they can see all the books displayed. Once done viewing the general book listing they will be brought back to the welcome page.
 
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/CIS%20350-SequenceDiagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS%20350-SequenceDiagram.png" alt="Trulli"
 style="width:75%">
-<p align="center">Figure 4. Sequence Diagram for Borrowing Books
+<p align="center">Figure 4. Sequence Diagram for Browsing Books
 </figcaption>
 </p>
 </figure>
