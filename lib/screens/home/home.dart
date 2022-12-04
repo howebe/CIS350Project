@@ -40,25 +40,6 @@ class Home extends StatelessWidget {
               color: Colors.white,
             ),
             ListTile(
-              leading: const Icon(Icons.person, color: Colors.white),
-              title: const Text(
-                'Profile',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const ProfilePage();
-                }));
-              },
-            ),
-            Container(
-              height: 10,
-              color: Colors.white,
-            ),
-            ListTile(
               leading: const Icon(Icons.create_outlined, color: Colors.white),
               title: const Text(
                 'Post a Book',

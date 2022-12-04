@@ -22,7 +22,7 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
-        title: const Text('Sign up'),
+        title: const Text('Sign Up'),
         actions: <Widget>[
           ElevatedButton.icon(
             icon: const Icon(Icons.person),
@@ -62,7 +62,7 @@ class _RegisterState extends State<Register> {
               const SizedBox(height: 20),
               ElevatedButton(
                   child: const Text(
-                    'Sign up',
+                    'Sign Up',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
