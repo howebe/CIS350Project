@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/main.dart';
+import 'package:textbook_sharing_app/models/user.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
+import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
 import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
 import 'package:textbook_sharing_app/screens/welcome/welcomepage.dart';
 
 void main() {
+
   // Test main.dart
   testWidgets('MyApp has a MaterialApp as its root',
       (WidgetTester tester) async {
@@ -80,4 +83,34 @@ void main() {
     expect(textInputDecoration.focusedBorder?.borderSide.color, Colors.black);
     expect(textInputDecoration.focusedBorder?.borderSide.width, 2.0);
   });
+
+  // Test User Class
+  test('AppUser should have the right parameters', () {
+    AppUser user = AppUser(uid: 'test');
+    expect(user.uid, 'test');
+  });
+
+  // Test Search Books
+  group('SearchBooks Tests', () {
+    test('Test for searchBooks class', () {
+      const searchBooks = SearchBooks();
+      expect(searchBooks, isA<SearchBooks>());
+    });
+
+    test('Test for initSearchBooks', () {
+      dynamic searchBooks = const SearchBooks();
+      expect(searchBooks.initSearchBooks('text'), isA<Future<QuerySnapshot>>());
+    });
+
+    test('Test for userText', () {
+      dynamic searchBooks = const SearchBooks();
+      expect(searchBooks.userText, isA<String>());
+    });
+  });
+
+  // Test Home Page
+  
+  
+
+
 }
