@@ -131,17 +131,17 @@ void main() {
   });
 
   test('Check input values should return false if input fields are empty', (){
-    List<TextEditingController> _controller = [TextEditingController(), TextEditingController()];
-    _controller[0].text = '';
-    _controller[1].text = '';
-    expect(checkInputValues(), false);
+    List<TextEditingController> controller = [TextEditingController(), TextEditingController()];
+    controller[0].text = '';
+    controller[1].text = '';
+    expect(const PostBookPage().checkInputValues(), false);
   });
 
   test('Check input values should return true if input fields are filled', (){
-    List<TextEditingController> _controller = [TextEditingController(), TextEditingController()];
-    _controller[0].text = 'input1';
-    _controller[1].text = 'input2';
-    expect(checkInputValues(), true);
+    List<TextEditingController> controller0 = [TextEditingController(), TextEditingController()];
+    controller0[0].text = 'input1';
+    controller0[1].text = 'input2';
+    expect(const PostBookPage().checkInputValues(), true);
   });
 
 
@@ -168,3 +168,5 @@ test('Auth screen has sign in and register view when initialized', () {
   });
 
 }
+
+

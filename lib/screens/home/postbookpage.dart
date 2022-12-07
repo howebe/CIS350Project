@@ -8,6 +8,8 @@ class PostBookPage extends StatefulWidget {
   const PostBookPage({super.key, this.uid});
   @override
   State<PostBookPage> createState() => _PostBookPageState();
+
+  bool checkInputValues() => false;
 }
 
 class _PostBookPageState extends State<PostBookPage> {
