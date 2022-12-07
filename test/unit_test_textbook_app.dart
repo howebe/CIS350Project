@@ -155,6 +155,7 @@ void main() {
     expect(const SearchBooks(), isInstanceOf<SearchBooks>());
   });
 
+// Test toggle views
 test('Auth screen has sign in and register view when initialized', () {
     const auth = Auth();
     expect(auth.showSignIn, true);
