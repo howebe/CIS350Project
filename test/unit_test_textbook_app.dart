@@ -5,7 +5,6 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/main.dart';
 import 'package:textbook_sharing_app/models/user.dart';
 import 'package:textbook_sharing_app/screens/auth/auth.dart';
-import 'package:textbook_sharing_app/screens/auth/register.dart';
 import 'package:textbook_sharing_app/screens/home/home.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
