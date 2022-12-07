@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
-import 'package:textbook_sharing_app/screens/home/profilepage.dart';
 import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/services/database.dart';

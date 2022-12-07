@@ -4,6 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/main.dart';
 import 'package:textbook_sharing_app/models/user.dart';
+import 'package:textbook_sharing_app/screens/auth/auth.dart';
+import 'package:textbook_sharing_app/screens/auth/register.dart';
+import 'package:textbook_sharing_app/screens/home/home.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
 import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
 import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
@@ -109,8 +112,58 @@ void main() {
   });
 
   // Test Home Page
-  
-  
+  test('Widget test for Home', () {
+    final key = UniqueKey();
+    final home = Home(key: key);
+    expect(home.key, key);
+    expect(home.runtimeType, Home);
+  });
 
+  // Test Post a Book
+  test('Press post a book button', () {
+    final key = UniqueKey();
+    final home = Home(key: key);
+    expect(home.key, key);
+    expect(home.runtimeType, Home);
+
+    expect(const PostBookPage(), isNotNull);
+    expect(const PostBookPage(), isInstanceOf<PostBookPage>());
+  });
+
+  test('Check input values should return false if input fields are empty', (){
+    List<TextEditingController> _controller = [TextEditingController(), TextEditingController()];
+    _controller[0].text = '';
+    _controller[1].text = '';
+    expect(checkInputValues(), false);
+  });
+
+  test('Check input values should return true if input fields are filled', (){
+    List<TextEditingController> _controller = [TextEditingController(), TextEditingController()];
+    _controller[0].text = 'input1';
+    _controller[1].text = 'input2';
+    expect(checkInputValues(), true);
+  });
+
+
+  test('Press search books button', () {
+    final key = UniqueKey();
+    final home = Home(key: key);
+    expect(home.key, key);
+    expect(home.runtimeType, Home);
+
+    expect(const SearchBooks(), isNotNull);
+    expect(const SearchBooks(), isInstanceOf<SearchBooks>());
+  });
+
+test('Auth screen has sign in and register view when initialized', () {
+    const auth = Auth();
+    expect(auth.showSignIn, true);
+  });
+
+  test('Toggle view changes the view from sign in to register', () {
+    const auth = Auth();
+    auth.toggleView();
+    expect(auth.showSignIn, false);
+  });
 
 }
