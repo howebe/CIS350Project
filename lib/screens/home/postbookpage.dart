@@ -31,6 +31,8 @@ class _PostBookPageState extends State<PostBookPage> {
               height: 10,
               color: Colors.blue[600],
             ),
+            height: 10,
+          ),
           TextFormField(
             controller: _controller[0],
             decoration:
@@ -40,6 +42,8 @@ class _PostBookPageState extends State<PostBookPage> {
               height: 10,
               color: Colors.blue[600],
             ),
+            height: 10,
+          ),
           TextFormField(
             controller: _controller[1],
             decoration:
@@ -49,6 +53,8 @@ class _PostBookPageState extends State<PostBookPage> {
               height: 15,
               color: Colors.blue[600],
             ),
+            height: 15,
+          ),
           TextButton(
             onPressed: () {
               if (checkInputValues()) {

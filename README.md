@@ -1,15 +1,13 @@
 # CIS350
 
-<font size="5"><b>Textbook Borrowing Web App
+<font size="5"><b>Textbook Sharing Mobile App
 
 ___Created by___:
 
 -------------------------------------------------
 Brandon Baker
 
-Ben Howe
-
-Sean O'Keefe</b></font>
+Ben Howe</b></font>
 
 -------------------------------------------------
 
@@ -20,13 +18,13 @@ Textbooks are one of the most important ways to learn in a lot of college course
 MERN is a free open-source JS software stack for building dynamic web sites and web apps. MERN consists of using MongoDB, React, and Node to represent the four key technologies that make up the stack. With the rapid growth of colleges and the prices growing immensely, books are also included in this growth of pricing and classes are continuing to require them each semester. The prices of books can vary between used books, E-books, or brand new. However, if you are ever struggling to find the book that you need or if the school itself is out of stock, it can be very frustrating keeping up with your class without a textbook. After opening the “Borrow Book” web app, users are greeted with a Welcome message and after will allow users to browse books. Browsing books has many different filters so students can find exactly what they are looking for. If a book is selected, two options are given, one is to Message the user and the other is to borrow the book. If either option is chosen, you are then sent straight to the authentication screen where you are given the option to either login with an existing account or sign up for a new account where a profile is created. Once you have either logged in or signed up, you are then redirected straight to the home page where you are given many options to redirect your attention to. There is a help section, an about section, you can Browse books from the home page like how you could before you went through authentication with the same search filters, you can post a book and you can look at your profile or if you found exactly what you need you are also able to log out. To get the book that you want, you must click on the desired book, and you can see the distributors profile, or you can choose to borrow the book. There is also a cart feature where you can rent out more than one book. Once you add the book(s) that you need, you can confirm the books separately and then message the user who is distributing of the book.
 
 ## 3 Architectural Design
-The Book Borrow Web app is based on the MERN architecture. MERN includes a front end and a back end where the front end is the user interface, and the back end is controlled by a server and database. The client is provided with an interactive user interface using React for the process of renting out books and many other functions available. The back end or server-side processes will be enabled using node and express. The client sends requests to the server to allow for books to be rented. Node and express communicate this data with mongoDB. Node and express are the middlemen for communicating the information from mongo to the user. The server also allows the user to check their profile and check any information regarding past books that they had rented out. 
+The textbook sharing mobile app is based on Flutter Firebase architecture. Flutter includes all user interface design materials, while Firebase allows the user to communicate with the database. It essentially acts as the server and the database (whole back end). The client is provided with an interactive user interface using flutter packages to post a book, login, see the listing of all books, and search. Mentioned earlier, all server and database functionality is handled by Firebase. Firebase handles all requests sent by the client for functionality such as posting and grabbing textbooks from the database.
 
 <figure>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/71044494/193474192-3c65a107-84dd-420d-94c9-44dceadf897b.png" alt="Trulli"
-style="width:50%">
-<p align="center">Figure 1. User Interface to Server Design of Book Borrowing System
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS350_Arch_Design.png" alt="Trulli"
+style="width:75%">
+<p align="center">Figure 1. User Interface to Server Design of Textbook Sharing App
 </figcaption>
 </p>
 </figure>
@@ -46,75 +44,104 @@ style="width:75%">
 
 <font size=4> <b>3.2 Use Case Diagram</b>
 
-<font size=3>Figure 3 shows the general use case for the borrow book web app. Inside the use case, the user can perform 5 tasks. The user can browse books without login by default, but once logged in, the user can browse books, post a book to lend, borrow a book, and view their account. Authentication is automatically part of login and must be done when logging in no matter what. Similarly, when browsing books, there is a search bar to look for specific books as well as an optional filter to narrow down the search. In the borrow book functionality, a user is able to message a lender or just add the book to the cart before borrowing. When a user views their profile they can see the books listed and borrowed, and the user can confirm borrows or returns to make sure the book was actually rented and returned to its owner.
+<font size=3>Figure 3 shows the general use case for the textbook sharing mobile app. Inside the use case, the user can perform 3 tasks. The user can login to their account or create an account, they can browse the listing of books, and they can post a book. Login includes authentification because authentication must be done in order to gain extra app functionality. Once logged in, the user can search for the book that they are interested in. Also, the user can post a textbook to the listing after they have logged in.
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/CIS350-UseCaseDiagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS350-%20Use%20Case%20Diagram.png" alt="Trulli"
 style="width:60%">
-<p align="center">Figure 3. Use Case Diagram for Borrowing Books
+<p align="center">Figure 3. Use Case Diagram for Browsing Books
 </figcaption>
 </p>
 </figure>
 
 <font size=4> <b>3.3 Sequence Diagram</b>
 
-<font size=3>Figure 4 shows the sequence diagram for borrowing a book. When the user first opens the webapp they are greeted with a welcome message and sent to the book catalog. The book catalog is a listing of all the books posted with little user functionality. When a user decides to login or create an account, they will be authenicated and allowed functionality that comes with an account. With a successfull login or sign up, the user reaches the home page where they can browse and borrow books. Once a book is selected, the user adds the book to their cart or can cancel the transaction. Both of which will send the user back to the home page. When a user logs out from the home page, they will be sent back to the general catalog.
+<font size=3>Figure 4 shows the sequence diagram for browsing books. The user starts by opening the app, then they will be directed to the welcome page. From the welcome page, they can either try to log in or view the general listing of all the textbooks. If the user successfully signs in or signs up, they will be directed to the home page where they will get added functionality of the app. They will be able to search for a specific book they are looking for. Once they are done searching for a book, they will be brought back to the home page, and logout when they are done. If the user doesn't want to log in and would like to see what books are available, they can see all the books displayed. Once done viewing the general book listing they will be brought back to the welcome page.
 
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/CIS%20350-SequenceDiagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/CIS%20350-SequenceDiagram.png" alt="Trulli"
 style="width:75%">
-<p align="center">Figure 4. Sequence Diagram for Borrowing Books
+<p align="center">Figure 4. Sequence Diagram for Browsing Books
 </figcaption>
 </p>
 </figure>
 
 ## 4 User Guide/Implementation
-<font size=4>___4.1 Login___
+<font size=4>___4.1 Welcome Page___
   
-<font size=3>When a user visits the webapp using a search engine of their choice, they are presented with a screen that prompts them to enter their login credentials or to create a new account. In order to access the features of the webapp, a user must have/make an account first. Account information will be further explained below in section 4.3 and figure 7. An example user interface can for the login screen can be seen below:
+<font size=3>When a user opens the mobile app, they are presented with a welcome screen that allows them to either navigate to view the overall listing of textbooks or login/signup for increased functionality. In order to access features of the mobile app, a user must have/make an account first. Additional functionality for signed in users includes posting a textbook, or searching through textbooks to find the right one for you. The user interface for the welcome page can be seen below in Figure 5.
+
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2014.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 5. Example User Interface for Login Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172782.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 5. Welcome Screen
 </figcaption>
 </p>
 </figure>
 
-<font size=4>___4.2 Home Page___
+<font size=4>___4.2 General Listing___
   
-<font size=3>After you have logged into a valid account, you are directed to the home page which acts as a hub to all of the different things you may want to explore or do within the webapp. Users have the ability to Browse books posted by other users as well as filter down their search results to look for a specific textbook they may want. They also have the ability to post a book to the listing for others to interact with and potentially claim.You may also access your profile inforation as well as other functions associated with your profile. Lastly there is options for help with a specific task and information about the webapp and its inspiration. An user interface example of this can be seen below in figure 6:
+<font size=3>If the user decides that they would like to view the total listing of textbooks without creating an account, they would navigate to this general listings page from the welcome page shown in figure 5. The page displays all the posted textbooks allowing the user to scroll through them. If the user sees a textbook they would like to borrow, they can then navigate back to the welcome page and go the other route towards signing in. The general listing of textbooks is shown below in Figure 6.
+
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%201.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 6. Example User Interface for Home Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172786.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 6. General Textbook Listing
 </figcaption>
 </p>
 </figure>
 
-<font size=4>___4.3 Profile___
+<font size=4>___4.3 Login___
   
-<font size=3>By selecting a users profile in the top right corner in the home page, the user will be presented with a new window where they can see their information linked to their account such as their name, email, school, and profile rating. Ratings are based off of user to user interactions in regards to borrowing transactions. They may aslo see their borrow history and book listings as well as return a book and edit the settings of their profile or book listings. A user interface example of this can be seen below in figure 7:
+<font size=3>Once the user decides they would like to login, either because they wanted a textbook they saw or they wanted to post a textbook, they would navigate to the authentification screens through a button on the wecome page. This button first shows the login screen for user that already have an account and would like to sign in. If the user doesn't have an account they can navigate to the register option shown in the top right of Figure 7. To register or sign in, the user must verify their email address as well as the password associated with their account. When signing up, the user must use a valid email and password otherwise they will be asked to change their information. The user interface for signing in/up can be seen below in Figure 7.
+
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2019.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 7. Example User Interface for Profile Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172792.png" alt="Trulli"
+style="width:25%">
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172794.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 7. Authenitification Screens
 </figcaption>
 </p>
 </figure>
 
-<font size=4>___4.4 Filtering Results___
+<font size=4>___4.4 Home Page___
   
-<font size=3>When browsing the listings for a specific book, a user has the ability to filter the results presented to them more easily find a specific textbook they are looking for. Below in figure 8, the ability to search for a textbook, filter by what university the current owner of the textbook attends, what grade level, subject, and class number the textbook is associated with as well as its condition and type, whether that be an ebook or paperback. By pressing search, the filters adjusted by the user will be applied and the results will be passed up into the listings section of the webapp. A user interface example of this can be seen below in figure 8:
+<font size=3>When the user has successfully logged in, they will be automatically directed to their home page. The home page consists of two options, posting a book, or searching for a book. When the user is ready to log out of their account, they can click the logout button in the top right to return to the welcome page. The user interface for a users home page can be seen below in Figure 8.
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Frame%2024.png" alt="Trulli"
-style="width:75%">
-<p align="center">Figure 8. Example User Interface for Filtering Screen
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172813.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. User's Home Page
+</figcaption>
+</p>
+</figure>
+
+<font size=4>___4.5 Post Textbook___
+  
+<font size=3>If the user has a textbook they would like to post to the app, they can navigate to the post textbook screen in the user's home page. This screen has two text fields, one for the name of the book, and another for the book's description. Once the user is ready to post their textbook, they can click the post a new book button below, or if they decide they wanted to cancel posting a book they can navigate back to their home page. The user interface for posting a book is shown below in Figure 9.
+<figure>
+<p align="center">
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172930.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. Screen to Post a Book
+</figcaption>
+</p>
+</figure>
+
+<font size=4>___4.6 Search Books___
+  
+<font size=3>If the user wants a specific textbook, they can navigate to search textbooks through their home page. When the user first enters this page, they will see a listing of all the books by default. Once they are ready to search for a specific book, they click on the top bar to the left of the search icon. The user then can search for a book by the name of the textbook. Just like the general listing of books before sign in, the user can scroll through all books found to find the book they are looking for. The search automatically updates as the user types. When finished, they can navigate back to their home page through the arrow in the top left. The user interface for searching for a book can be found below in Figure 10.
+<figure>
+<p align="center">
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Screenshot_1670172951.png" alt="Trulli"
+style="width:25%">
+<p align="center">Figure 8. Search Books
 </figcaption>
 </p>
 </figure>
