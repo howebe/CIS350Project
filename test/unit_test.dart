@@ -9,9 +9,11 @@ import 'package:textbook_sharing_app/models/user.dart';
 import 'package:textbook_sharing_app/screens/auth/auth.dart';
 import 'package:textbook_sharing_app/screens/home/home.dart';
 import 'package:textbook_sharing_app/screens/home/postbookpage.dart';
+import 'package:textbook_sharing_app/screens/home/searchbookdefault.dart';
 import 'package:textbook_sharing_app/screens/home/searchbooks.dart';
 import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
 import 'package:textbook_sharing_app/screens/welcome/welcomepage.dart';
+import 'package:textbook_sharing_app/textbook.dart';
 
 void main() {
   setupFirebaseAuthMocks();
@@ -60,20 +62,6 @@ void main() {
     expect(genList.collection('textbook_catalog').snapshots(), isNotNull);
   });
 
-  // test('test card display of firebase data', () async {
-  //   final genList =
-  //       await FirebaseFirestore.instance.collection('textbook_catalog').get();
-  //   expect(
-  //       ListView(
-  //         children: genList.docs.map((doc) {
-  //           return Card(
-  //             child: ListTile(title: Text(doc["Name"]), onTap: () {}),
-  //           );
-  //         }).toList(),
-  //       ),
-  //       isNotNull);
-  // });
-
   // Test Input Boxes
   test('input decoration should have the right parameters', () {
     expect(textInputDecoration.fillColor, Colors.white);
@@ -91,30 +79,32 @@ void main() {
   });
 
   // Test Search Books
-  group('SearchBooks Tests', () {
-    test('Test for searchBooks class', () {
-      const searchBooks = SearchBooks();
-      expect(searchBooks, isA<SearchBooks>());
-    });
-
-    // test('Test for initSearchBooks', () {
-    //   dynamic searchBooks = const SearchBooks();
-    //   expect(searchBooks.initSearchBooks('text'), isA<Future<QuerySnapshot>>());
-    // });
-
-    // test('Test for userText', () {
-    //   dynamic searchBooks = const SearchBooks();
-    //   expect(searchBooks.userText, isA<String>());
-    // });
+  test('Test for searchBooks class', () {
+    const searchBooks = SearchBooks();
+    expect(searchBooks, isA<SearchBooks>());
   });
 
   // Test Home Page
-  // test('Widget test for Home', () {
-  //   final key = UniqueKey();
-  //   final home = Home(key: key);
-  //   expect(home.key, key);
-  //   expect(home.runtimeType, Home);
-  // });
+  test('Widget test for Home', () {
+    final key = UniqueKey();
+    final home = Home(key: key);
+    expect(home.key, key);
+    expect(home.runtimeType, Home);
+  });
+
+  testWidgets('Home page UI test', (WidgetTester tester) async{
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Home(),
+      ),
+    );
+    expect(find.byType(ListTile), findsNWidgets(2));
+    expect(find.text("Post a Book"), findsOneWidget);
+    expect(find.text("Search Books"), findsOneWidget);
+    expect(find.byIcon(Icons.create_outlined), findsOneWidget);
+    expect(find.byIcon(Icons.search), findsOneWidget);
+    expect(find.byType(Container), findsNWidgets(3));
+  });
 
   // Test Post a Book
   test('Press post a book button', () {
@@ -159,6 +149,15 @@ void main() {
     expect(const SearchBooks(), isInstanceOf<SearchBooks>());
   });
 
+testWidgets('SearchBooks widget test', (WidgetTester tester) async {
+    
+    const SearchBooks widget = SearchBooks();
+    await tester.pumpWidget(const MaterialApp(home: widget));
+    
+    expect(find.byType(TextField), findsOneWidget);
+    expect(find.byType(SearchDefault), findsOneWidget);
+  });
+
 // Test toggle views
   test('Auth screen has sign in and register view when initialized', () {
     final auth = Auth();
@@ -170,4 +169,12 @@ void main() {
     auth.toggleView();
     expect(auth.showSignIn, false);
   });
+
+  // Test Textbook Class
+   test('Textbook instantiation', () {
+    final Textbook textbook = Textbook('Engineering', 'Textbook for engineering 101');
+    expect(textbook.name, 'Engineering');
+    expect(textbook.description, 'Textbook for engineering 101');
+  });
+
 }

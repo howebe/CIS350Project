@@ -5,6 +5,7 @@ import 'package:textbook_sharing_app/services/auth.dart';
 class Register extends StatefulWidget {
   final Function toggleView;
   const Register({super.key, required this.toggleView});
+
   @override
   State<Register> createState() => _RegisterState();
 }
