@@ -17,13 +17,13 @@ import 'package:textbook_sharing_app/services/database.dart';
 import 'package:textbook_sharing_app/textbook.dart';
 
  void main() {
- testWidgets('Sign in with email and password test', (WidgetTester tester) async {
+//  testWidgets('Sign in with email and password test', (WidgetTester tester) async {
     
-    await tester.pumpWidget(const MyApp());
-    await tester.enterText(find.byKey(const Key('emailField')), 'test@example.com');
-    await tester.enterText(find.byKey(const Key('passwordField')), 'test123');
-    await tester.tap(find.byKey(const Key('signInButton')));
-    
-    expect(find.byKey(const Key('signedInSnackBar')), findsOneWidget);
-  });
+//     await tester.pumpWidget(const MyApp());
+//     await tester.enterText(find.byKey(const Key('emailField')), 'test@example.com');
+//     await tester.enterText(find.byKey(const Key('passwordField')), 'test123');
+//     await tester.tap(find.byKey(const Key('signInButton')));
+
+//     expect(find.byKey(const Key('signedInSnackBar')), findsOneWidget);
+//   });
 }
