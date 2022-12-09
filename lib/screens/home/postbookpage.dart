@@ -8,6 +8,17 @@ class PostBookPage extends StatefulWidget {
   const PostBookPage({super.key, this.uid});
   @override
   State<PostBookPage> createState() => _PostBookPageState();
+
+  bool checkInputValues(String a) {
+    bool filled = true;
+
+    for (var i = 0; i < 2; i++) {
+      if (a.isEmpty) {
+        filled = false;
+      }
+    }
+    return filled;
+  }
 }
 
 class _PostBookPageState extends State<PostBookPage> {
@@ -26,27 +37,30 @@ class _PostBookPageState extends State<PostBookPage> {
       body: Column(
         children: [
           Container(
-            height: 10,
-          ),
+              height: 10,
+              color: Colors.blue[600],
+            ),
           TextFormField(
             controller: _controller[0],
             decoration:
                 textInputDecoration.copyWith(hintText: "Book name..."),
           ),
           Container(
-            height: 10,
-          ),
+              height: 10,
+              color: Colors.blue[600],
+            ),
           TextFormField(
             controller: _controller[1],
             decoration:
                 textInputDecoration.copyWith(hintText: "Description..."),
           ),
           Container(
-            height: 15,
-          ),
+              height: 15,
+              color: Colors.blue[600],
+            ),
           TextButton(
             onPressed: () {
-              if (checkInputValues()) {
+              if (checkInputValues(_controller[0].text) && checkInputValues(_controller[1].text)) {
                 final DatabaseService db = DatabaseService();
                 final auth = AuthService();
                 String userID = auth.inputData;
@@ -83,9 +97,9 @@ class _PostBookPageState extends State<PostBookPage> {
     );
   }
 
-  bool checkInputValues() {
+  bool checkInputValues(String text) {
     bool filled = true;
-    
+
     for (var i = 0; i < 2; i++) {
       if (_controller[i].text.isEmpty) {
         filled = false;
