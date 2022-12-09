@@ -14,7 +14,6 @@ import 'package:textbook_sharing_app/screens/welcome/general_listing.dart';
 import 'package:textbook_sharing_app/screens/welcome/welcomepage.dart';
 
 void main() {
-
   setupFirebaseAuthMocks();
 
   setUpAll(() async {
@@ -35,35 +34,26 @@ void main() {
   });
 
   // Test PostBookPage.dart
-  // testWidgets('Post book page test', (WidgetTester tester) async {
-  //   dynamic widget = const PostBookPage();
-  //   await tester.pumpWidget(widget);
+  testWidgets('Post book page test', (WidgetTester tester) async {
+    const PostBookPage widget = PostBookPage();
+    await tester.pumpWidget(const MaterialApp(home: widget));
 
-  //   expect(find.byType(TextFormField), findsNWidgets(2));
-  //   expect(find.byType(TextButton), findsOneWidget);
-
-  //   expect(widget._controller[0].text, isEmpty);
-  //   expect(widget._controller[1].text, isEmpty);
-
-  //   expect(widget.checkInputValues(), isFalse);
-
-  //   widget._controller[0].text = "Book Name";
-  //   widget._controller[1].text = "Book Descripton";
-
-  //   expect(widget._controller[1].text, "Book Name");
-  //   expect(widget._controller[1].text, "Book Description");
-  // });
+    expect(find.byType(TextFormField), findsNWidgets(2));
+    expect(find.byType(TextButton), findsOneWidget);
+  });
 
   // // Test General Listing Page
-  // testWidgets('General listing page test', (WidgetTester tester) async {
-  //   const widget = GeneralListing(title: 'Test');
-  //   await tester.pumpWidget(widget);
+  testWidgets('General listing page test', (WidgetTester tester) async {
+    const GeneralListing widget = GeneralListing(title: 'General Listing');
+    await tester.pumpWidget(const MaterialApp(home: widget));
 
-  //   expect(find.text('Test'), findsOneWidget);
-  //   expect(find.byType(StreamBuilder), findsOneWidget);
-  //   expect(find.byType(ListView), findsOneWidget);
-  //   expect(find.byType(Card), findsOneWidget);
-  // });
+    expect(find.byType(GeneralListing), findsOneWidget);
+    expect(find.byType(StreamBuilder<QuerySnapshot>), findsOneWidget);
+    expect(find.byType(Center), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(Scaffold), findsOneWidget);
+    expect(find.byType(AppBar), findsOneWidget);
+  });
 
   test('test firebase data grab', () {
     final genList = FirebaseFirestore.instance;
@@ -137,16 +127,22 @@ void main() {
     expect(const PostBookPage(), isInstanceOf<PostBookPage>());
   });
 
-  test('Check input values should return false if input fields are empty', (){
-    List<TextEditingController> controller = [TextEditingController(), TextEditingController()];
+  test('Check input values should return false if input fields are empty', () {
+    List<TextEditingController> controller = [
+      TextEditingController(),
+      TextEditingController()
+    ];
     String a = controller[0].text = '';
     String b = controller[1].text = '';
     expect(const PostBookPage().checkInputValues(a), false);
     expect(const PostBookPage().checkInputValues(b), false);
   });
 
-  test('Check input values should return true if input fields are filled', (){
-    List<TextEditingController> controller0 = [TextEditingController(), TextEditingController()];
+  test('Check input values should return true if input fields are filled', () {
+    List<TextEditingController> controller0 = [
+      TextEditingController(),
+      TextEditingController()
+    ];
     String a = controller0[0].text = 'input1';
     String b = controller0[1].text = 'input2';
     expect(const PostBookPage().checkInputValues(a), true);
@@ -164,14 +160,14 @@ void main() {
   });
 
 // Test toggle views
-// test('Auth screen has sign in and register view when initialized', () {
-//     const auth = Auth();
-//     expect(auth.showSignIn, true);
-//   });
+  test('Auth screen has sign in and register view when initialized', () {
+    final auth = Auth();
+    expect(auth.showSignIn, true);
+  });
 
-//   test('Toggle view changes the view from sign in to register', () {
-//     const auth = Auth();
-//     auth.toggleView();
-//     expect(auth.showSignIn, false);
-//   });
+  test('Toggle view changes the view from sign in to register', () {
+    final auth = Auth();
+    auth.toggleView();
+    expect(auth.showSignIn, false);
+  });
 }
