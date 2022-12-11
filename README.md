@@ -31,24 +31,24 @@ style="width:75%">
 
 <font size=4>___3.1 Class Diagrams___
 
-<font size=3>Figure 2 shows the class diagram for posting a book to the listing. Each user will have a profile and a list of textbooks they are providing. Each textbook will have a user that owns it as well as a condition, type, and class it is used in. The profile and class will help filtering book search later on. The homepage class contains all the functionality of the system such as a user borrowing a textbook, a user viewing their profile, etc. There are many textbooks displayed on the homepage by default which will be shown in section 4.
+<font size=3>Figure 2 shows the class diagram for posting a book to the listing. When entering a book, the user must specify the name and descrption of the book. When bosted, the users userID is linked to the book for contacting purposes for the other users that may be browsing the book in the listing. Any user may post as many books as they like and the listing will automatically update with the new book added. This use case was created with the intent of making the posting process as simple as possible for all users involved. The class diagram for this use case can be seen below in figure 2.
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Post_book_class_diagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Post_book_class_diagram.png" alt="Trulli"
 style="width:75%">
 <p align="center">Figure 2. Class Diagram for Posting a Book
 </figcaption>
 </p>
 </figure>
 
-<font size=3>Figure 3 shows the class diagram for posting a book to the listing. Each user will have a profile and a list of textbooks they are providing. Each textbook will have a user that owns it as well as a condition, type, and class it is used in. The profile and class will help filtering book search later on. The homepage class contains all the functionality of the system such as a user borrowing a textbook, a user viewing their profile, etc. There are many textbooks displayed on the homepage by default which will be shown in section 4.
+<font size=3>Figure 3 shows the class diagram for searching/browsing books in the listing. When the user is in the home page, they are automatically presented with a listing of all of the books currently posted in the listing. If the user is looking for a specific book, they have the ability to search for the book by name by selecting the search icon in the top right corner (which can be seen further below in figure 11). When selected, they are directed to the search page with a search bar where books are listed in accordance with what the user types in the search bar. The class diagram for this use case can be seen below in figure 3.
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Search_browse_book_class_diagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Search_browse_book_class_diagram.png" alt="Trulli"
 style="width:75%">
-<p align="center">Figure 2. Class Diagram for Posting a Book
+<p align="center">Figure 3. Class Diagram for Searching/Browisng for a Book
 </figcaption>
 </p>
 </figure>
@@ -108,7 +108,7 @@ style="width:25%">
 
 <font size=4>___4.3 Login___
   
-<font size=3>Once the user decides they would like to login, either because they wanted a textbook they saw or they wanted to post a textbook, they would navigate to the authentification screens through a button on the wecome page. This button first shows the login screen for user that already have an account and would like to sign in. If the user doesn't have an account they can navigate to the register option shown in the top right of Figure 7. To register or sign in, the user must verify their email address as well as the password associated with their account. When signing up, the user must use a valid email and password otherwise they will be asked to change their information. The user interface for signing in/up can be seen below in Figure 8.
+<font size=3>Once the user decides they would like to login, either because they wanted a textbook they saw or they wanted to post a textbook, they would navigate to the authentification screens through a button on the wecome page. This button first shows the login screen for user that already have an account and would like to sign in. If the user doesn't have an account they can navigate to the register option shown in the top right of Figure 8. To register or sign in, the user must verify their email address as well as the password associated with their account. When signing up, the user must use a valid email and password otherwise they will be asked to change their information. The user interface for signing in/up can be seen below in Figure 8.
 
 <figure>
 <p align="center">
