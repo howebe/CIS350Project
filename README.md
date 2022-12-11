@@ -46,7 +46,7 @@ style="width:75%">
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Search_browse_book_class_diagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Search_Browse_book_class_diagram.png" alt="Trulli"
 style="width:75%">
 <p align="center">Figure 3. Class Diagram for Searching/Browisng for a Book
 </figcaption>
