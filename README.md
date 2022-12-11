@@ -35,7 +35,7 @@ style="width:75%">
   
 <figure>
 <p align="center">
-<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Post_Book_class_diagram.png" alt="Trulli"
+<img src="https://github.com/howebe/CIS350Project/blob/main/Documentation/Post_book_class_diagram.png" alt="Trulli"
 style="width:75%">
 <p align="center">Figure 2. Class Diagram for Posting a Book
 </figcaption>
