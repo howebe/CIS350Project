@@ -80,7 +80,7 @@ style="width:75%">
 </figure>
 
 ## 4 User Guide/Implementation
-<font size=4>___.1 Welcome Page___
+<font size=4>___4.1 Welcome Page___
   
 <font size=3>When a user opens the mobile app, they are presented with a welcome screen that allows them to either navigate to view the overall listing of textbooks or login/signup for increased functionality. In order to access features of the mobile app, a user must have/make an account first. Additional functionality for signed in users includes posting a textbook, or searching through textbooks to find the right one for you. The user interface for the welcome page can be seen below in Figure 6.
 
