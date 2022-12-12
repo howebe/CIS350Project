@@ -2,17 +2,24 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/home/searchbookdefault.dart';
 
+//Creating class for search page
 class SearchBooks extends StatefulWidget {
   const SearchBooks({super.key});
 
+  //Creates a flutter widget for the search page
   @override
   State<SearchBooks> createState() => _SearchBooksState();
 }
 
+//initilization of flutter widget class for search page
 class _SearchBooksState extends State<SearchBooks> {
+  //ititializes a query to grab the textbook list
   Future<QuerySnapshot>? postTextbookList;
+  //input to the textfield
   String userText = '';
 
+  /*called everytime a change is made to the textbox, querying the textbook catalog in 
+  accordance with matching letters to the textbook names from the textbox*/
   initSearchBooks(String textEntered) {
     postTextbookList = FirebaseFirestore.instance
         .collection("textbook_catalog")
@@ -25,6 +32,7 @@ class _SearchBooksState extends State<SearchBooks> {
     });
   }
 
+  //All user interface development and binded functionalities
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +43,7 @@ class _SearchBooksState extends State<SearchBooks> {
             gradient: LinearGradient(colors: [Colors.blue, Colors.white]),
           ),
         ),
+        //listing presented will change in accordance to changes in the textfield
         title: TextField(
           onChanged: (textEntered) {
             setState(() {
@@ -52,6 +61,7 @@ class _SearchBooksState extends State<SearchBooks> {
                 Icons.search,
                 color: Colors.black,
               ),
+              //listing in relation to textfield input is presented when "Search for textbook" button is pressed 
               onPressed: () {
                 initSearchBooks(userText);
               },
@@ -59,6 +69,7 @@ class _SearchBooksState extends State<SearchBooks> {
           ),
         ),
       ),
+      //executes the acutal process of displaying searched books onto the main area of the search page
       body: FutureBuilder<QuerySnapshot>(
         future: postTextbookList,
         builder: (context, snapshot) {
