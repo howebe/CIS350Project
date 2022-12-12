@@ -6,11 +6,16 @@ import 'package:flutter/services.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_test/flutter_test.dart';
 
+/*
+Used to setup a mock firebase app for running the
+app during testing.
+*/
+
 typedef Callback = void Function(MethodCall call);
 
+// Create firebase mock to simulate firebase
 void setupFirebaseAuthMocks([Callback? customHandlers]) {
   TestWidgetsFlutterBinding.ensureInitialized();
-
   setupFirebaseCoreMocks();
 }
 

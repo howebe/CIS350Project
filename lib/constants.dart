@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+/*
+Constant used to decorate all input boxes
+from the user. Shortens UI design code.
+*/
+
 const textInputDecoration = InputDecoration(
 fillColor: Colors.white,
 filled: true,

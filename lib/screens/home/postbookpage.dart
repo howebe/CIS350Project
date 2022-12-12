@@ -3,18 +3,19 @@ import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 import 'package:textbook_sharing_app/services/database.dart';
 
-//Creating class for Posting book
+/*
+The post book page class allows the user to enter in the name 
+and description of the book they would like to post to the
+firestore database.
+*/
 class PostBookPage extends StatefulWidget {
-  
-  //Will store the users identification used at login
   final String? uid;
   const PostBookPage({super.key, this.uid});
-  
-  //Creates a flutter widget for the post book page
-  @override  
+
+  @override
   State<PostBookPage> createState() => _PostBookPageState();
 
-  //Checks the values passed in from text boxes and returns true if all are filled with text
+  // Public access to method to check user input isn't empty
   bool checkInputValues(String a) {
     bool filled = true;
 
@@ -27,15 +28,13 @@ class PostBookPage extends StatefulWidget {
   }
 }
 
-//initilization of flutter widget class for posting book 
 class _PostBookPageState extends State<PostBookPage> {
-  
-  //changes any null inputs to text boxes as an empty string
+  // Create two text editing controller to track user input
   final List<TextEditingController> _controller = [
     for (int i = 0; i < 2; i++) TextEditingController()
   ];
-  
-  //All user interface development and binded functionalities
+
+  // Create scaffold containing UI design
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,54 +46,56 @@ class _PostBookPageState extends State<PostBookPage> {
       body: Column(
         children: [
           Container(
-              height: 10,
-              color: Colors.blue[600],
-            ),
-          //Book name input set to first index of _controller list
+            height: 10,
+            color: Colors.blue[600],
+          ),
+
+          // Book name input set to first index of _controller list
           TextFormField(
             controller: _controller[0],
-            decoration:
-                textInputDecoration.copyWith(hintText: "Book name..."),
+            decoration: textInputDecoration.copyWith(hintText: "Book name..."),
           ),
           Container(
-              height: 10,
-              color: Colors.blue[600],
-            ),
-          //Book description input set to second index of _controller list
+            height: 10,
+            color: Colors.blue[600],
+          ),
+          // Book description input set to second index of _controller list
           TextFormField(
             controller: _controller[1],
             decoration:
                 textInputDecoration.copyWith(hintText: "Description..."),
           ),
           Container(
-              height: 15,
-              color: Colors.blue[600],
-            ),
+            height: 15,
+            color: Colors.blue[600],
+          ),
+
           //Adds input to firebase when "Post a new book" button is pressed
           TextButton(
             onPressed: () {
-              //checks to make sure any empty strings were not passed into the list
-              if (checkInputValues(_controller[0].text) && checkInputValues(_controller[1].text)) {
-                //initializes instance of the database class
+              // Checks that user input isn't empty
+              if (checkInputValues(_controller[0].text) &&
+                  checkInputValues(_controller[1].text)) {
+                // Create instance of database and authservice
                 final DatabaseService db = DatabaseService();
-                //initializes instance of the auth class
                 final auth = AuthService();
-                //sets userID to current users ID info
-                String userID = auth.inputData;
+
                 //sets inputs to textfields and userID to a new instance of a textbook to be posted
                 Map<String, String> textbook = {
                   'Name': _controller[0].text,
                   'Description': _controller[1].text,
-                  'Owner': userID,
+                  'Owner': auth.inputData,
                 };
 
-                //Adds this instance of a textbook to firebase
+                // Adds mapped textbook to firestore database as a new document
                 db.addTextbook(textbook);
-                //changes post book page to default form after button press
+
+                // Navigate back to home page
                 Navigator.pop(context);
               }
             },
-            //Cosmetic adjustments to "Post a new book" button
+
+            // Cosmetic for post book button
             style: ButtonStyle(
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                     side: const BorderSide(
@@ -119,7 +120,7 @@ class _PostBookPageState extends State<PostBookPage> {
     );
   }
 
-  //Checks the values passed in from controller list and retruns true if none of the indexes are empty strings
+  // Checks the values passed in from controller list and returns true if none of the indexes are empty strings
   bool checkInputValues(String text) {
     bool filled = true;
 

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/constants.dart';
 import 'package:textbook_sharing_app/services/auth.dart';
 
+/*
+The register class is responsible for displaying the 
+screen for a user to register into the system, as well 
+as validating their credentials.
+*/
+
 class Register extends StatefulWidget {
   final Function toggleView;
   const Register({super.key, required this.toggleView});
@@ -11,15 +17,20 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  // Instances of register class
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
   String error = '';
+
+  // Build the scaffold containing the register screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[200],
+
+      // App bar contains toggle button and title
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0.0,
@@ -34,6 +45,8 @@ class _RegisterState extends State<Register> {
           )
         ],
       ),
+
+      // Display input boxes and state functionality
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
@@ -61,6 +74,8 @@ class _RegisterState extends State<Register> {
                 },
               ),
               const SizedBox(height: 20),
+
+              // Register information by pressing button
               ElevatedButton(
                   child: const Text(
                     'Sign Up',

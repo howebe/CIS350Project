@@ -2,24 +2,28 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:textbook_sharing_app/screens/home/searchbookdefault.dart';
 
-//Creating class for search page
+/*
+This class is responsible for displaying either the textbook names that
+match the user's search or the general listing of textbooks before
+the user has entered anything in the search bar yet.
+*/
+
 class SearchBooks extends StatefulWidget {
   const SearchBooks({super.key});
 
-  //Creates a flutter widget for the search page
   @override
   State<SearchBooks> createState() => _SearchBooksState();
 }
 
-//initilization of flutter widget class for search page
 class _SearchBooksState extends State<SearchBooks> {
-  //ititializes a query to grab the textbook list
+  
+  // Inititializes a query to grab the textbook list
   Future<QuerySnapshot>? postTextbookList;
-  //input to the textfield
+
+  // Instance that will store user text
   String userText = '';
 
-  /*called everytime a change is made to the textbox, querying the textbook catalog in 
-  accordance with matching letters to the textbook names from the textbox*/
+  // This method grabs proper name data and will update what is displayed automatically
   initSearchBooks(String textEntered) {
     postTextbookList = FirebaseFirestore.instance
         .collection("textbook_catalog")
@@ -27,12 +31,13 @@ class _SearchBooksState extends State<SearchBooks> {
         .where("Name", isLessThanOrEqualTo: '$textEntered~')
         .get();
 
+    // Updates state of list to be displayed
     setState(() {
       postTextbookList;
     });
   }
 
-  //All user interface development and binded functionalities
+  //All UI development and binded functionalities
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +48,8 @@ class _SearchBooksState extends State<SearchBooks> {
             gradient: LinearGradient(colors: [Colors.blue, Colors.white]),
           ),
         ),
-        //listing presented will change in accordance to changes in the textfield
+
+        // User input for search that changes state of listing
         title: TextField(
           onChanged: (textEntered) {
             setState(() {
@@ -52,24 +58,21 @@ class _SearchBooksState extends State<SearchBooks> {
 
             initSearchBooks(textEntered);
           },
-          decoration: InputDecoration(
+
+          // Cosmetics for app bar
+          decoration: const InputDecoration(
             hintText: "Search for textbook...",
-            hintStyle: const TextStyle(color: Colors.white),
+            hintStyle: TextStyle(color: Colors.white),
             border: InputBorder.none,
-            suffixIcon: IconButton(
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              //listing in relation to textfield input is presented when "Search for textbook" button is pressed 
-              onPressed: () {
-                initSearchBooks(userText);
-              },
+            suffixIcon: Icon(
+              Icons.search,
+              color: Colors.black,
             ),
           ),
         ),
       ),
-      //executes the acutal process of displaying searched books onto the main area of the search page
+
+      // Grabs proper textbook names from database real time
       body: FutureBuilder<QuerySnapshot>(
         future: postTextbookList,
         builder: (context, snapshot) {

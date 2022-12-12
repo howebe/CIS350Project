@@ -6,10 +6,20 @@ import 'package:textbook_sharing_app/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+/*
+The home class displays the users home page which 
+consists of two buttons, one to navigate to post a book,
+and the other to navigate to search for a book.
+*/
+
 class Home extends StatelessWidget {
+
+  // Creates instance of firebase auth service
   final AuthService _auth = AuthService();
 
   Home({super.key});
+
+  // Create home page design
   @override
   Widget build(BuildContext context) {
     return StreamProvider<QuerySnapshot?>.value(
@@ -17,6 +27,8 @@ class Home extends StatelessWidget {
       value: DatabaseService(uid: toString()).user,
       child: Scaffold(
         backgroundColor: Colors.blue[600],
+
+        // App bar contains title and logout feature
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('TextBook App'),
@@ -32,6 +44,8 @@ class Home extends StatelessWidget {
             )
           ],
         ),
+
+        // Display buttons for redirection to functionality
         body: Column(
           children: [
             Container(
@@ -47,6 +61,8 @@ class Home extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
+              // Navigate to post a book
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const PostBookPage();
@@ -66,6 +82,8 @@ class Home extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
+              // Navigate to search for a book
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const SearchBooks();
